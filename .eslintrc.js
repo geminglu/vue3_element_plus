@@ -17,5 +17,7 @@ module.exports = {
     semi: [1, 'always'],
     'comma-dangle': [0, 'always'],
     'space-before-function-paren': 0,
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
   },
 };

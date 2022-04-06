@@ -3,9 +3,16 @@
 </template>
 
 <script>
+import { test } from '@/serivce/table';
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Index',
+  setup() {
+    test({}).then((res) => {
+      console.log(res);
+    });
+  },
 };
 </script>
 
