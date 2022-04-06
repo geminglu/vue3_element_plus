@@ -7,21 +7,20 @@
 
 <script>
 export default {
-  name: 'NotFound'
-}
+  name: 'NotFound',
+};
 </script>
 
 <style>
 .NotFound {
   width: 100%;
   height: 100%;
-  background-image: url("@/assets/NotFound.png");
+  background-image: url('@/assets/NotFound.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   text-align: center;
 }
-button{
-
+button {
 }
 </style>
