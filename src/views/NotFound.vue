@@ -21,6 +21,4 @@ export default {
   background-size: cover;
   text-align: center;
 }
-button {
-}
 </style>
