@@ -32,17 +32,4 @@ module.exports = defineConfig({
       }),
     ],
   },
-  chainWebpack: (config) => {
-    config.module
-      .rule('images')
-      .use('image-webpack-loader')
-      .loader('image-webpack-loader')
-      .options({
-        mozjpeg: { progressive: true, quality: 50 }, // 压缩JPEG图像
-        optipng: { enabled: true }, // 压缩PNG图像
-        pngquant: { quality: [0.5, 0.65], speed: 4 }, // 压缩PNG图像
-        gifsicle: { interlaced: false }, // 压缩GIF图像
-      })
-      .end();
-  },
 });
