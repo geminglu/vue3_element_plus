@@ -2,8 +2,9 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import './permission';
 import './global.less';
-import '../mock';
+import './style/index.css';
 
 console.log(process.env);
 
