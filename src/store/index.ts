@@ -13,6 +13,8 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 }, {});
 
 export default createStore({
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   getters,
   mutations: {},
   actions: {},

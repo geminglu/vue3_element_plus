@@ -7,20 +7,21 @@
       </div>
       <div class="container">
         <div class="main">
-          <transition name="fade-transform" mode="out-in">
+          <!-- <transition name="fade-transform" mode="out-in">
             <keep-alive :include="keepAliveIncludes">
-              <!-- <router-view :key="key" /> -->
+              <router-view :key="key" />
             </keep-alive>
-          </transition>
+          </transition> -->
+          <Main v-model:foo="foo" />
         </div>
-        <div class="footer">footer</div>
+        <!-- <div class="footer">footer</div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Aside } from './components';
+import { Aside, Main } from './components';
 import { mapGetters, useStore } from 'vuex';
 import { computed, ref } from 'vue';
 export default {
@@ -28,8 +29,12 @@ export default {
   name: 'Laout',
   setup() {
     const data = ref(0);
+    const foo = ref(1);
+    console.log(12312);
+
     return {
       data,
+      foo,
     };
   },
   computed: {
@@ -40,6 +45,7 @@ export default {
   },
   components: {
     Aside,
+    Main,
   },
 };
 </script>

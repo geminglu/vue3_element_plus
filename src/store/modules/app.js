@@ -1,8 +1,8 @@
 const state = {
   sidebar: {
     opened: JSON.parse(localStorage.getItem('sidebarStatus') || false),
-    keepAliveIncludes: [],
   },
+  keepAliveIncludes: [],
 };
 const mutations = {
   TOGGLE_SIDEBAR: (state, sidebarStatus) => {
@@ -24,6 +24,7 @@ const mutations = {
 
   // 删除缓存
   DELETE_KEEPALIVE: (state, data) => {
+    console.log(state.keepAliveIncludes);
     state.keepAliveIncludes = state.keepAliveIncludes.filter(
       (item) => item !== data
     );
