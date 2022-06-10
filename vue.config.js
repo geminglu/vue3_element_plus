@@ -22,6 +22,7 @@ module.exports = defineConfig({
       alias: {
         '@': resolve('src'),
       },
+      fallback: { path: require.resolve('path-browserify') },
     },
     plugins: [
       AutoImport({
