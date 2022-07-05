@@ -15,5 +15,7 @@ router.beforeEach(async (to, from, next) => {
     await store.dispatch('app/deleteKeepAlive', to.name);
   }
 
+  await store.dispatch('permission/generateRoutes');
+
   next();
 });
