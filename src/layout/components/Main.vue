@@ -1,18 +1,41 @@
 <template>
-  {{ foo }}
-  <button @click="onClick">123</button>
+  <div>
+    <!-- <transition name="fade-transform" mode="out-in"> -->
+    <keep-alive :include="keepAliveIncludes">
+      <router-view :key="key" />
+    </keep-alive>
+    <!-- </transition> -->
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { defineProps, defineExpose } from 'vue';
-const props = defineProps({
-  foo: String,
-});
-const onClick = () => {
-  const num = 1; // 定义num数值
-  defineExpose('update:foo', 12312); // 传递更新数值
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Main',
+  computed: {
+    ...mapGetters(['sidebar', 'keepAliveIncludes']),
+    key() {
+      return this.$route.path;
+    },
+  },
 };
-
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.2s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

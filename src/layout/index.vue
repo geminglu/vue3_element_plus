@@ -7,12 +7,7 @@
       </div>
       <div class="container">
         <div class="main">
-          <!-- <transition name="fade-transform" mode="out-in">
-            <keep-alive :include="keepAliveIncludes">
-              <router-view :key="key" />
-            </keep-alive>
-          </transition> -->
-          <Main v-model:foo="foo" />
+          <Main />
         </div>
         <!-- <div class="footer">footer</div> -->
       </div>
@@ -22,26 +17,12 @@
 
 <script>
 import { Aside, Main } from './components';
-import { mapGetters, useStore } from 'vuex';
-import { computed, ref } from 'vue';
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Laout',
+  name: 'Layout',
   setup() {
-    const data = ref(0);
-    const foo = ref(1);
-    console.log(12312);
-
-    return {
-      data,
-      foo,
-    };
-  },
-  computed: {
-    ...mapGetters(['sidebar', 'keepAliveIncludes']),
-    key() {
-      return this.$route.path;
-    },
+    return {};
   },
   components: {
     Aside,
@@ -65,20 +46,5 @@ export default {
 .asideActivation {
   width: 210px;
   transition: 20s;
-}
-/* fade-transform */
-.fade-transform-leave-active,
-.fade-transform-enter-active {
-  transition: all 0.2s;
-}
-
-.fade-transform-enter {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-.fade-transform-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }
 </style>
