@@ -6,8 +6,6 @@ import './permission';
 import './global.less';
 import './style/index.css';
 
-console.log(process.env);
-
 const app = createApp(App);
 app.use(store);
 app.use(router);

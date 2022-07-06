@@ -24,7 +24,6 @@ const mutations = {
 
   // 删除缓存
   DELETE_KEEPALIVE: (state, data) => {
-    console.log(state.keepAliveIncludes);
     state.keepAliveIncludes = state.keepAliveIncludes.filter(
       (item) => item !== data
     );

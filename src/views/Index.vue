@@ -4,14 +4,13 @@
 
 <script>
 import { test } from '@/serivce/table';
-import { ElButton } from 'element-plus';
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Index',
   setup() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     test({}).then((res) => {
-      console.log(res);
     });
   },
 };
