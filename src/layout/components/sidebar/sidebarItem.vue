@@ -1,13 +1,17 @@
 <template>
-  <div
+  <template
     v-if="!item.meta?.hidden && !item.children?.every((e) => e.meta?.hidden)"
-    class="sidebar_item"
   >
     <el-sub-menu
       v-if="item.children && item.children.length > 0"
       :index="resolvePath(basePath)"
     >
-      <template #title>{{ item.meta?.title }}</template>
+      <template #title>
+        <el-icon>
+          <span class="iconfont" :class="item.meta.icon" />
+        </el-icon>
+        <span>{{ item.meta?.title }}</span>
+      </template>
       <SidebarItem
         v-for="router in item.children"
         :key="router.path"
@@ -15,10 +19,13 @@
         :basePath="resolvePath(router.path)"
       />
     </el-sub-menu>
-    <el-menu-item v-else :index="resolvePath(basePath)">{{
-      item.name
-    }}</el-menu-item>
-  </div>
+    <el-menu-item v-else :index="resolvePath(basePath)">
+      <el-icon>
+        <span class="iconfont" :class="item.meta.icon" />
+      </el-icon>
+      <template #title>{{ item.name }}</template>
+    </el-menu-item>
+  </template>
 </template>
 
 <script>
@@ -46,8 +53,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="less">
-.sidebar_item {
-}
-</style>

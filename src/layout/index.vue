@@ -2,8 +2,8 @@
   <div class="container">
     <div class="header">header</div>
     <div class="content">
-      <div :class="{ asideActivation: !sidebar }" class="aside">
-        <Aside />
+      <div class="aside">
+          <Aside />
       </div>
       <div class="container">
         <div class="main">
@@ -33,7 +33,7 @@ export default {
 
 <style lang="less" scoped>
 .header {
-  height: 60px;
+  height: var(--headerHeight);
   background-color: aqua;
 }
 .content {
@@ -42,9 +42,5 @@ export default {
 }
 .aside {
   border-right: 1px solid rgb(237, 237, 237);
-}
-.asideActivation {
-  width: 210px;
-  transition: 20s;
 }
 </style>

@@ -6,7 +6,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Index',
     component: Layout,
-    meta: { hidden: false },
+    meta: { hidden: false, icon: 'icon-message-center' },
   },
   {
     path: '/:path(.*)',
@@ -25,34 +25,25 @@ export const routes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: '/permission/page',
     name: 'Permission',
-    meta: {
-      title: 'Permission',
-      icon: 'lock',
-    },
+    meta: { title: 'Permission', icon: 'icon-order' },
     children: [
       {
         path: 'page',
         component: () => import('../views/permission/page.vue'),
         name: 'PagePermission',
-        meta: {
-          title: 'Page Permission',
-        },
+        meta: { title: 'Page Permission' },
       },
       {
         path: 'directive',
         component: () => import('../views/permission/directive.vue'),
         name: 'DirectivePermission',
-        meta: {
-          title: 'Directive Permission',
-        },
+        meta: { title: 'Directive Permission' },
       },
       {
         path: 'role',
         component: () => import('@/views/permission/role.vue'),
         name: 'RolePermission',
-        meta: {
-          title: 'Role Permission',
-        },
+        meta: { title: 'Role Permission' },
       },
     ],
   },
@@ -60,13 +51,13 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/icon',
     name: 'icon',
     component: Layout,
-    meta: { title: 'icon', icon: 'icon' },
+    meta: { title: 'icon', icon: 'icon-price' },
     children: [
       {
         path: 'index',
         component: () => import('../views/icons/index.vue'),
         name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon' },
+        meta: { title: 'Icons' },
       },
     ],
   },
@@ -76,7 +67,7 @@ export const routes: Array<RouteRecordRaw> = [
     component: Layout,
     meta: {
       title: '2',
-      icon: 'lock',
+      icon: 'icon-supplier-ship',
     },
     children: [
       {
@@ -85,7 +76,7 @@ export const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/icons/index.vue'),
         meta: {
           title: '2.1',
-          icon: 'lock',
+          icon: 'icon-logistics-track',
         },
         children: [
           {
@@ -94,7 +85,7 @@ export const routes: Array<RouteRecordRaw> = [
             component: () => import('@/views/permission/role.vue'),
             meta: {
               title: '2.1.1',
-              icon: 'lock',
+              icon: 'icon-payable',
             },
             children: [
               {

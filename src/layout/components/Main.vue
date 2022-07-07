@@ -14,7 +14,7 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Main',
   computed: {
-    ...mapGetters(['sidebar', 'keepAliveIncludes']),
+    ...mapGetters(['keepAliveIncludes']),
     key() {
       return this.$route.path;
     },

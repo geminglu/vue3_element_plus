@@ -1,5 +1,12 @@
 <template>
-  <el-menu :default-active="activeMenu()" mode="vertical" unique-opened router>
+  <el-menu
+    :default-active="activeMenu()"
+    mode="vertical"
+    unique-opened
+    router
+    :collapse="sidebar.opened"
+    class="el-menu-vertical-demo"
+  >
     <SidebarItem
       v-for="router in routers"
       :key="router.path"
@@ -11,13 +18,14 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, useStore } from 'vuex';
 import SidebarItem from './sidebarItem.vue';
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Sidebar',
   setup() {
+    const store = useStore();
     const state = reactive({});
 
     /**
@@ -31,20 +39,28 @@ export default defineComponent({
       return path;
     }
 
+    function asd() {
+      store.commit('app/TOGGLE_SIDEBAR');
+    }
+
     return {
       ...toRefs(state),
       activeMenu,
+      asd,
     };
   },
   components: {
     SidebarItem,
   },
   computed: {
-    ...mapGetters(['routers']),
+    ...mapGetters(['routers', 'sidebar']),
   },
-  methods: {
-  },
+  methods: {},
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 100%;
+}
+</style>
