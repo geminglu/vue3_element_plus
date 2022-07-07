@@ -25,12 +25,12 @@ module.exports = defineConfig({
       fallback: { path: require.resolve('path-browserify') },
     },
     plugins: [
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      }),
+      // AutoImport({
+      //   resolvers: [ElementPlusResolver()],
+      // }),
+      // Components({
+      //   resolvers: [ElementPlusResolver()],
+      // }),
     ],
   },
 });

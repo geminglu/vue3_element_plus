@@ -1,0 +1,884 @@
+{
+  "id": "3505221",
+  "name": "vue3_element_plus",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "vue3_element_plus",
+  "glyphs": [
+    {
+      "icon_id": "29265274",
+      "name": "多云-1",
+      "font_class": "duoyun-1",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "29265275",
+      "name": "大雪",
+      "font_class": "daxue",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "29265276",
+      "name": "大雨",
+      "font_class": "dayu",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "29265277",
+      "name": "风",
+      "font_class": "feng",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "29265278",
+      "name": "多云-3",
+      "font_class": "duoyun-3",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "29265279",
+      "name": "多云-2",
+      "font_class": "duoyun-2",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "29265280",
+      "name": "雷雨交加",
+      "font_class": "leiyujiaojia",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "29265281",
+      "name": "多云",
+      "font_class": "duoyun",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "29265282",
+      "name": "中雨",
+      "font_class": "zhongyu",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "29265283",
+      "name": "雾",
+      "font_class": "wu",
+      "unicode": "e6ad",
+      "unicode_decimal": 59053
+    },
+    {
+      "icon_id": "29265284",
+      "name": "小雨",
+      "font_class": "xiaoyu",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "29265285",
+      "name": "小雪",
+      "font_class": "xiaoxue",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "29265286",
+      "name": "闪电",
+      "font_class": "shandian",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "29265287",
+      "name": "雪",
+      "font_class": "xue",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "29265288",
+      "name": "中雪",
+      "font_class": "zhongxue",
+      "unicode": "e6b2",
+      "unicode_decimal": 59058
+    },
+    {
+      "icon_id": "29265289",
+      "name": "扬尘",
+      "font_class": "yangchen",
+      "unicode": "e6b3",
+      "unicode_decimal": 59059
+    },
+    {
+      "icon_id": "29265290",
+      "name": "月亮",
+      "font_class": "yueliang",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "29265291",
+      "name": "雨夹雪",
+      "font_class": "yujiaxue",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "29265292",
+      "name": "晴",
+      "font_class": "qing",
+      "unicode": "e6b6",
+      "unicode_decimal": 59062
+    },
+    {
+      "icon_id": "29265293",
+      "name": "霾",
+      "font_class": "mai",
+      "unicode": "e6b7",
+      "unicode_decimal": 59063
+    },
+    {
+      "icon_id": "30140100",
+      "name": "成本核算",
+      "font_class": "chengbenhesuan",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "30140106",
+      "name": "供应商管理",
+      "font_class": "gongyingshangguanli",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "30140259",
+      "name": "安全管理",
+      "font_class": "anquanguanli",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "30140300",
+      "name": "合同管理",
+      "font_class": "hetongguanli",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "30140320",
+      "name": "基础资料",
+      "font_class": "jichuziliao",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "30140329",
+      "name": "竣工管理",
+      "font_class": "jungongguanli",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "30140335",
+      "name": "领导总览",
+      "font_class": "lingdaozonglan",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "30142392",
+      "name": "企业定额",
+      "font_class": "qiyedinge",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "30142399",
+      "name": "切换至自定义菜单",
+      "font_class": "qiehuanzhizidingyicaidan",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "30142406",
+      "name": "全面预算",
+      "font_class": "quanmianyusuan",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "30142428",
+      "name": "人力资源",
+      "font_class": "renliziyuan",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "30142433",
+      "name": "商务管理",
+      "font_class": "shangwuguanli",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "30142521",
+      "name": "设备管理",
+      "font_class": "shebeiguanli",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "30142536",
+      "name": "投标管理",
+      "font_class": "toubiaoguanli",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "30142601",
+      "name": "维保管理",
+      "font_class": "weibaoguanli",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "30142604",
+      "name": "文档资料",
+      "font_class": "wendangziliao",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "30142616",
+      "name": "物资管理",
+      "font_class": "wuziguanli",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "30142618",
+      "name": "现场管理",
+      "font_class": "xianchangguanli",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "30142998",
+      "name": "项目报告",
+      "font_class": "xiangmubaogao",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "30143001",
+      "name": "项目计划",
+      "font_class": "xiangmujihua",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "30143002",
+      "name": "销售管理",
+      "font_class": "xiaoshouguanli",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "30143037",
+      "name": "协同办公",
+      "font_class": "xietongbangong",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "30143041",
+      "name": "需求管理",
+      "font_class": "xuqiuguanli",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "30143045",
+      "name": "业务表单",
+      "font_class": "yewubiaodan",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "30143047",
+      "name": "招标管理",
+      "font_class": "zhaobiaoguanli",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "30143056",
+      "name": "周转材料",
+      "font_class": "zhouzhuancailiao",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "30143074",
+      "name": "资金管理",
+      "font_class": "zijinguanli",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "30143126",
+      "name": "质量管理",
+      "font_class": "zhiliangguanli",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "30132173",
+      "name": "message-center",
+      "font_class": "message-center",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "30132174",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "30132175",
+      "name": "image-gallery",
+      "font_class": "image-gallery",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "30132176",
+      "name": "organization-tree",
+      "font_class": "organization-tree",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "30132177",
+      "name": "instant-message",
+      "font_class": "instant-message",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "30132178",
+      "name": "order-configure",
+      "font_class": "order-configure",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "30132179",
+      "name": "price",
+      "font_class": "price",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "30132180",
+      "name": "label",
+      "font_class": "label",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "30132181",
+      "name": "logistics-track",
+      "font_class": "logistics-track",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "30132182",
+      "name": "payable",
+      "font_class": "payable",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "30132183",
+      "name": "data-check",
+      "font_class": "data-check",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "30132184",
+      "name": "c-sales",
+      "font_class": "c-sales",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "30132185",
+      "name": "returned-purchase",
+      "font_class": "returned-purchase",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "30132186",
+      "name": "mall-manage",
+      "font_class": "mall-manage",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "30132187",
+      "name": "purchase-base",
+      "font_class": "purchase-base",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "30132188",
+      "name": "Invoice",
+      "font_class": "Invoice",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "30132189",
+      "name": "reconciliation",
+      "font_class": "reconciliation",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "30132190",
+      "name": "bill",
+      "font_class": "bill",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "30132191",
+      "name": "organize-main-data",
+      "font_class": "organize-main-data",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "30132192",
+      "name": "stock",
+      "font_class": "stock",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "30132193",
+      "name": "stock-batch",
+      "font_class": "stock-batch",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "30132194",
+      "name": "commodity-manage",
+      "font_class": "commodity-manage",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "30132195",
+      "name": "structure-manage",
+      "font_class": "structure-manage",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "30132196",
+      "name": "register",
+      "font_class": "register",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "30132197",
+      "name": "process-inquire",
+      "font_class": "process-inquire",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "30132198",
+      "name": "receivables",
+      "font_class": "receivables",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "30132199",
+      "name": "process-manage",
+      "font_class": "process-manage",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "30132200",
+      "name": "order-settings",
+      "font_class": "order-settings",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "30132201",
+      "name": "organize",
+      "font_class": "organize",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "30132202",
+      "name": "settlement",
+      "font_class": "settlement",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "30132203",
+      "name": "purchase-price",
+      "font_class": "purchase-price",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "30132204",
+      "name": "performance-manage",
+      "font_class": "performance-manage",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "30132205",
+      "name": "workflow",
+      "font_class": "workflow",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "30132206",
+      "name": "process-operate",
+      "font_class": "process-operate",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "30132207",
+      "name": "stock-business",
+      "font_class": "stock-business",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "30132208",
+      "name": "staff-manage",
+      "font_class": "staff-manage",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "30132209",
+      "name": "platform-manage",
+      "font_class": "platform-manage",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "30132210",
+      "name": "supplier-ship",
+      "font_class": "supplier-ship",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "30132211",
+      "name": "template-manage",
+      "font_class": "template-manage",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "30132212",
+      "name": "supplier-cycle",
+      "font_class": "supplier-cycle",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "30132213",
+      "name": "role-permissions",
+      "font_class": "role-permissions",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "30132214",
+      "name": "logistics",
+      "font_class": "logistics",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "30132215",
+      "name": "supplier-manage",
+      "font_class": "supplier-manage",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "30132216",
+      "name": "srock-parameter",
+      "font_class": "srock-parameter",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "30132217",
+      "name": "shopping-cart",
+      "font_class": "shopping-cart",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "30132218",
+      "name": "shopping-settings",
+      "font_class": "shopping-settings",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "30132219",
+      "name": "system-center",
+      "font_class": "system-center",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "30132220",
+      "name": "supplier-assessment",
+      "font_class": "supplier-assessment",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "30132221",
+      "name": "storehouse",
+      "font_class": "storehouse",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "30132222",
+      "name": "store-manage",
+      "font_class": "store-manage",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "30132223",
+      "name": "price-audit",
+      "font_class": "price-audit",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "30132224",
+      "name": "srock-inquire",
+      "font_class": "srock-inquire",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "30132225",
+      "name": "project-manage",
+      "font_class": "project-manage",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "30132226",
+      "name": "stock-operate",
+      "font_class": "stock-operate",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "30132227",
+      "name": "target",
+      "font_class": "target",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "30132151",
+      "name": "application",
+      "font_class": "application",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "30132152",
+      "name": "business",
+      "font_class": "business",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "30132153",
+      "name": "category",
+      "font_class": "category",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "30132154",
+      "name": "commodity-operate",
+      "font_class": "commodity-operate",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "30132155",
+      "name": "address-book",
+      "font_class": "address-book",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "30132156",
+      "name": "companu-main-data",
+      "font_class": "companu-main-data",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "30132157",
+      "name": "basic-configuration",
+      "font_class": "basic-configuration",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "30132158",
+      "name": "commodity",
+      "font_class": "commodity",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "30132159",
+      "name": "approval",
+      "font_class": "approval",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "30132160",
+      "name": "brand",
+      "font_class": "brand",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "30132161",
+      "name": "distribution",
+      "font_class": "distribution",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "30132162",
+      "name": "b-sales",
+      "font_class": "b-sales",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "30132163",
+      "name": "cost-calculate",
+      "font_class": "cost-calculate",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "30132164",
+      "name": "company-manage",
+      "font_class": "company-manage",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "30132165",
+      "name": "conpou-sales",
+      "font_class": "conpou-sales",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "30132166",
+      "name": "data-dictionary",
+      "font_class": "data-dictionary",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "30132167",
+      "name": "information-maintain",
+      "font_class": "information-maintain",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "30132168",
+      "name": "group-sales",
+      "font_class": "group-sales",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "30132169",
+      "name": "numbering-device",
+      "font_class": "numbering-device",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "30132170",
+      "name": "gross-profit",
+      "font_class": "gross-profit",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "30132171",
+      "name": "commodity-audit",
+      "font_class": "commodity-audit",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "30132172",
+      "name": "main-price",
+      "font_class": "main-price",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    }
+  ]
+}
