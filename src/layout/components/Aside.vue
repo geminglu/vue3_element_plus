@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar height="calc(100vh - var(--headerHeight))">
+  <el-scrollbar height="calc(100vh - var(--header_height) - 51px)">
     <Sidebar />
   </el-scrollbar>
 </template>

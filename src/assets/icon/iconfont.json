@@ -6,6 +6,20 @@
   "description": "vue3_element_plus",
   "glyphs": [
     {
+      "icon_id": "27556873",
+      "name": "右缩进@3x",
+      "font_class": "a-yousuojin3x",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "27556876",
+      "name": "左缩进@3x",
+      "font_class": "a-zuosuojin3x",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
       "icon_id": "29265274",
       "name": "多云-1",
       "font_class": "duoyun-1",

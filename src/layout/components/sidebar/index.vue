@@ -6,6 +6,7 @@
     router
     :collapse="sidebar.opened"
     class="el-menu-vertical-demo"
+    text-color="#303133e8"
   >
     <SidebarItem
       v-for="router in routers"
@@ -18,14 +19,13 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue';
-import { mapGetters, useStore } from 'vuex';
+import { mapGetters } from 'vuex';
 import SidebarItem from './sidebarItem.vue';
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Sidebar',
   setup() {
-    const store = useStore();
     const state = reactive({});
 
     /**
@@ -39,14 +39,9 @@ export default defineComponent({
       return path;
     }
 
-    function asd() {
-      store.commit('app/TOGGLE_SIDEBAR');
-    }
-
     return {
       ...toRefs(state),
       activeMenu,
-      asd,
     };
   },
   components: {
@@ -61,6 +56,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 100%;
+  width: var(--aside_width);
+  border-right: none;
 }
 </style>
