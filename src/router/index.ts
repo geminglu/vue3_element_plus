@@ -6,7 +6,15 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Index',
     component: Layout,
+    redirect: '/dashboard',
     meta: { hidden: false, icon: 'icon-message-center' },
+    children: [
+      {
+        path: '/dashboard',
+        component: () => import('../views/Index.vue'),
+        meta: { title: 'dashboard', hidden: false },
+      },
+    ],
   },
   {
     path: '/:path(.*)',
