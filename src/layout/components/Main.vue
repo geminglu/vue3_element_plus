@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <!-- <transition name="fade-transform" mode="out-in"> -->
-    <keep-alive :include="keepAliveIncludes">
-      <router-view :key="key" />
-    </keep-alive>
-    <!-- </transition> -->
-  </div>
+  <keep-alive :include="keepAliveIncludes">
+    <router-view :key="key" />
+  </keep-alive>
 </template>
 
 <script>
