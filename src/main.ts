@@ -8,9 +8,11 @@ import './permission';
 import './style/global.less';
 import './style/index.css';
 import './assets/icon/iconfont';
+import PageHeaderWrapper from './components/PageHeaderWrapper/index.vue';
 
 const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(ElementPlus);
+app.component('page-header-wrapper', PageHeaderWrapper);
 app.mount('#app');

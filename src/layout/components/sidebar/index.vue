@@ -58,5 +58,6 @@ export default defineComponent({
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: var(--aside_width);
   border-right: none;
+  user-select: none;
 }
 </style>

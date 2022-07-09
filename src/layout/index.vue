@@ -17,18 +17,18 @@
           />
         </div>
       </div>
-      <div class="container">
-        <div class="main">
-          <Main />
+      <el-scrollbar class="page_scrollbar">
+        <div class="page">
+          <Main class="main" />
+          <Footer />
         </div>
-        <!-- <div class="footer">footer</div> -->
-      </div>
+      </el-scrollbar>
     </div>
   </div>
 </template>
 
 <script>
-import { Aside, Main } from './components';
+import { Aside, Main, Footer } from './components';
 import { mapGetters, useStore } from 'vuex';
 
 export default {
@@ -47,6 +47,7 @@ export default {
   components: {
     Aside,
     Main,
+    Footer,
   },
   computed: {
     ...mapGetters(['sidebar']),
@@ -65,8 +66,26 @@ export default {
 }
 .aside {
   height: 100%;
+  position: relative;
+  z-index: 10;
   background-color: #fff;
   box-shadow: 2px 0 8px 0 rgb(29 35 41 / 5%);
+}
+.page_scrollbar {
+  width: 100%;
+  height: calc(100vh - var(--header_height));
+}
+.page {
+  width: 100%;
+  min-height: calc(100vh - var(--header_height));
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.main {
+  flex: auto;
 }
 .collapsed {
   height: 50px;
