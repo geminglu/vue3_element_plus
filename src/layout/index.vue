@@ -17,18 +17,21 @@
           />
         </div>
       </div>
-      <el-scrollbar class="page_scrollbar">
-        <div class="page">
-          <Main class="main" />
-          <Footer />
-        </div>
-      </el-scrollbar>
+      <div class="main-container">
+        <TagsView />
+        <el-scrollbar class="page_scrollbar">
+          <div class="page">
+            <Main class="main" />
+            <Footer />
+          </div>
+        </el-scrollbar>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Aside, Main, Footer } from './components';
+import { Aside, Main, Footer, TagsView } from './components';
 import { mapGetters, useStore } from 'vuex';
 
 export default {
@@ -48,6 +51,7 @@ export default {
     Aside,
     Main,
     Footer,
+    TagsView,
   },
   computed: {
     ...mapGetters(['sidebar']),
@@ -74,6 +78,9 @@ export default {
 .page_scrollbar {
   width: 100%;
   height: calc(100vh - var(--header_height));
+}
+.main-container {
+  width: 100%;
 }
 .page {
   width: 100%;
