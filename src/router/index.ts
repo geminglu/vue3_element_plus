@@ -126,6 +126,21 @@ export const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  {
+    path: '/utils',
+    name: 'utils',
+    component: Layout,
+    redirect: '/utils/decimalJs',
+    meta: { title: 'utils', icon: 'icon-price' },
+    children: [
+      {
+        path: 'decimalJs',
+        component: () => import('../views/utils/decimalJs/index.vue'),
+        name: 'decimalJs',
+        meta: { title: 'decimalJs' },
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

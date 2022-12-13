@@ -1,5 +1,10 @@
 <template>
-  <div>index</div>
+  <page-header-wrapper back="首页" backUrl="123" title="首页">
+    <div class="slider-demo-block">
+    <span class="demonstration">Default value</span>
+    <el-slider />
+  </div>
+  </page-header-wrapper>
 </template>
 
 <script>
