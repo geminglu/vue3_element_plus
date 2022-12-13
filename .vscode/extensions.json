@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "christian-kohler.npm-intellisense",
+    "Vue.vscode-typescript-vue-plugin"
+  ]
+}
