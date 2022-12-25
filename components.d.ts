@@ -15,6 +15,7 @@ declare module 'vue' {
     ElOption: typeof import('element-plus/es')['ElOption']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElSlider: typeof import('element-plus/es')['ElSlider']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     LoginForm: typeof import('./src/components/LoginForm.vue')['default']
     PageHeaderWrapper: typeof import('./src/components/PageHeaderWrapper/index.vue')['default']

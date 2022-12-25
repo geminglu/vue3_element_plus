@@ -15,7 +15,19 @@ router.beforeEach(async (to, from, next) => {
     await store.dispatch('app/deleteKeepAlive', to.name);
   }
 
-  await store.dispatch('permission/generateRoutes');
-
-  next();
+  if (!store.getters.addRoutes.length) {
+    const asyncRoutes = await store.dispatch('permission/generateRoutes');
+    asyncRoutes.forEach((item) => {
+      router.addRoute(item);
+    });
+    router.addRoute({
+      path: '/:path(.*)',
+      name: 'NotFound',
+      component: () => import('./views/NotFound.vue'),
+      meta: { hidden: true },
+    });
+    next({ ...to, replace: true });
+  } else {
+    next();
+  }
 });

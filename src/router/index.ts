@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Layout from '@/layout/index.vue';
 
-export const routes: Array<RouteRecordRaw> = [
+export const constantRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Register.vue'),
+    meta: { hidden: true },
+  },
   {
     path: '/',
     name: 'Index',
@@ -16,18 +22,9 @@ export const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  {
-    path: '/:path(.*)',
-    name: 'NotFound',
-    component: () => import('../views/NotFound.vue'),
-    meta: { hidden: true },
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: () => import('../views/Register.vue'),
-    meta: { hidden: true },
-  },
+];
+
+export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/permission',
     component: Layout,
@@ -139,13 +136,25 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'decimalJs',
         meta: { title: 'decimalJs' },
       },
+      {
+        path: 'echarts',
+        component: () => import('../views/echarts/index.vue'),
+        name: 'echarts',
+        meta: { title: 'echarts' },
+      },
+      {
+        path: 'antv',
+        component: () => import('../views/utils/antv/index.vue'),
+        name: 'antv',
+        meta: { title: 'antv' },
+      },
     ],
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
+  routes: constantRoutes,
 });
 
 export default router;

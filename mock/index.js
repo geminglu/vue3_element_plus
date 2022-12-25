@@ -1,8 +1,10 @@
 const Mock = require('mockjs');
+const utils = require('./utils/index');
 
 // 设置拦截ajax请求的相应时间
 
 const routers = [
+  ...utils,
   {
     url: '/table/list1',
     method: 'get',

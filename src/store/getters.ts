@@ -3,6 +3,7 @@ const getters = {
   keepAliveIncludes: (state: { app: { keepAliveIncludes: any } }) =>
     state.app.keepAliveIncludes,
   routers: (state: { permission: { routers: any; }; }) => state.permission.routers,
+  addRoutes: (state: { permission: { addRoutes: any; }; }) => state.permission.addRoutes
 };
 
 export default getters;
