@@ -33,11 +33,14 @@ module.exports = defineConfig({
       Components({
         resolvers: [ElementPlusResolver()],
       }),
+      require('unplugin-vue-define-options/webpack')({
+        include: [/\.vue$/, /\.vue\?vue/],
+      }),
     ],
   },
   chainWebpack: (config) => {
     if (process.env.use_analyzer) {
       config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
     }
-  }
+  },
 });
