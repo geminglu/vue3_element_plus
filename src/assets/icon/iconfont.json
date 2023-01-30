@@ -6,6 +6,132 @@
   "description": "vue3_element_plus",
   "glyphs": [
     {
+      "icon_id": "11124973",
+      "name": "表单",
+      "font_class": "form",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1915204",
+      "name": "销售组件",
+      "font_class": "icon-test",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "6284047",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "6186649",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "17692261",
+      "name": "日期时间",
+      "font_class": "riqishijian",
+      "unicode": "e708",
+      "unicode_decimal": 59144
+    },
+    {
+      "icon_id": "15220263",
+      "name": "多行输入",
+      "font_class": "duohangshuru",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "15220264",
+      "name": "单行输入",
+      "font_class": "danhangshuru",
+      "unicode": "e6d6",
+      "unicode_decimal": 59094
+    },
+    {
+      "icon_id": "15220276",
+      "name": "计算组件",
+      "font_class": "jisuanzujian",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "15220279",
+      "name": "开关",
+      "font_class": "kaiguan",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "15220283",
+      "name": "下拉选择",
+      "font_class": "xialaxuanze",
+      "unicode": "e6da",
+      "unicode_decimal": 59098
+    },
+    {
+      "icon_id": "15220285",
+      "name": "评分",
+      "font_class": "pingfen",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "15220292",
+      "name": "单选",
+      "font_class": "danxuan",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "15220293",
+      "name": "多选",
+      "font_class": "duoxuan",
+      "unicode": "e6dc",
+      "unicode_decimal": 59100
+    },
+    {
+      "icon_id": "15196956",
+      "name": "26.slider",
+      "font_class": "slider",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "15196959",
+      "name": "25.color",
+      "font_class": "color",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "15196964",
+      "name": "34.上传",
+      "font_class": "shangchuan",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "15196973",
+      "name": "36.number",
+      "font_class": "number",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "7165085",
+      "name": "容器构建",
+      "font_class": "rongqigoujian",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
       "icon_id": "1208591",
       "name": "返回_icon",
       "font_class": "fanhui_icon",
@@ -214,13 +340,6 @@
       "font_class": "lingdaozonglan",
       "unicode": "e68e",
       "unicode_decimal": 59022
-    },
-    {
-      "icon_id": "30142392",
-      "name": "企业定额",
-      "font_class": "qiyedinge",
-      "unicode": "e68f",
-      "unicode_decimal": 59023
     },
     {
       "icon_id": "30142399",
