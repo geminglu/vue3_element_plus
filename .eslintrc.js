@@ -15,12 +15,13 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    'no-console': 'warn',
+    'no-console': 'error',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     semi: [1, 'always'],
     'comma-dangle': [0, 'always'],
     'space-before-function-paren': 0,
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    'vue/multi-word-component-names': 'off'
   },
 };
