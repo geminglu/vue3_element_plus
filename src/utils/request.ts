@@ -1,9 +1,34 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-const request = axios.create({
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance, AxiosError } from 'axios';
+import { ElMessage } from 'element-plus';
+import { ResultType } from '#/request';
+import useUserStore from '@/store/modules/user';
+import router from '@/router';
+
+const userStore = useUserStore();
+
+const axiosDefault: AxiosInstance = axios.create({
   timeout: 10000,
   headers: { 'Content-Type': 'application/json;charset=UTF-8' },
   withCredentials: true,
+  baseURL: process.env.VUE_APP_BASE_URL,
 });
+
+function handelError(error: AxiosError<ResultType>) {
+  switch (error.status) {
+    case 401:
+      router.push({ path: '/signIn', query: { to: router.currentRoute.value.fullPath } });
+      userStore.logout();
+      break;
+    default:
+      ElMessage({
+        showClose: true,
+        message: error.response?.data?.message || error.message,
+        type: 'error',
+        grouping: true,
+      });
+      break;
+  }
+}
 
 const CancelToken = axios.CancelToken;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,13 +51,9 @@ function removeSource(config: AxiosRequestConfig) {
 /**
  * 请求拦截器
  */
-request.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    removeSource(config);
-    config.cancelToken = new CancelToken((c: unknown) => {
-      // 将取消函数存起来
-      sources.push({ umet: config.url + '&' + config.method, cancel: c });
-    });
+axiosDefault.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = 'Bearer ' + userStore.access_token;
     return config;
   },
   (error) => {
@@ -41,14 +62,43 @@ request.interceptors.request.use(
 );
 
 // 响应拦截器
-request.interceptors.response.use(
-  (response: AxiosResponse) => {
-    removeSource(response.config);
-    return response.data;
+axiosDefault.interceptors.response.use(
+  (response: AxiosResponse<ResultType>) => {
+    // removeSource(response.config);
+    if (!response.data.success) {
+      ElMessage({
+        showClose: true,
+        message: response.data.message,
+        type: 'error',
+        grouping: true,
+      });
+      return Promise.reject(response);
+    }
+    return Promise.resolve(response);
   },
-  (error) => {
+  (error: AxiosError<ResultType>) => {
+    handelError(error);
     return Promise.reject(error);
   }
 );
 
-export default request;
+/**
+ * request
+ * @param config
+ * @returns
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function request<T = any>(config: AxiosRequestConfig) {
+  return new Promise<ResultType<T>>((resolve, reject) => {
+    axiosDefault
+      .request<ResultType<T>>(config)
+      .then((response: AxiosResponse<ResultType<T>>) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+export default axiosDefault;
