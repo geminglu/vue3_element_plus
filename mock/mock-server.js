@@ -8,7 +8,7 @@ const mockDir = path.join(process.cwd(), 'mock');
 
 function registerRoutes(app) {
   let mockLastIndex;
-  const { routers } = require('./index.js');
+  const routers = require('./index.js');
   const mocksForServer = routers.map((route) => {
     return responseFake(route.url, route.type, route.response);
   });
@@ -18,7 +18,7 @@ function registerRoutes(app) {
   }
   const mockRoutesLength = Object.keys(mocksForServer).length;
   return {
-    mockRoutesLength: mockRoutesLength,
+    mockRoutesLength,
     mockStartIndex: mockLastIndex - mockRoutesLength,
   };
 }
@@ -44,9 +44,7 @@ const responseFake = (url, type, respond) => {
     url: new RegExp(`${url}`),
     type: type || 'get',
     response(req, res) {
-      res.json(
-        Mock.mock(respond instanceof Function ? respond(req, res) : respond)
-      );
+      res.json(Mock.mock(respond instanceof Function ? respond(req, res) : respond));
     },
   };
 };
@@ -83,12 +81,10 @@ module.exports = ({ app }) => {
           mockRoutesLength = mockRoutes.mockRoutesLength;
           mockStartIndex = mockRoutes.mockStartIndex;
 
-          console.log(
-            chalk.magentaBright(
-              `\n > Mock Server hot reload success! changed  ${path}`
-            )
-          );
+          // eslint-disable-next-line no-console
+          console.log(chalk.magentaBright(`\n > Mock Server hot reload success! changed  ${path}`));
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.log(chalk.redBright(error));
         }
       }
