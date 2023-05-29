@@ -13,9 +13,10 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "element-plus/global"],
+    "types": ["webpack-env", "element-plus/global", "unplugin-vue-define-options/macros-global"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
@@ -24,6 +25,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
+    "tests/**/*.d.ts",
     "tests/**/*.tsx",
     "src/store/index.ts",
     "src/store/modules/app.js"

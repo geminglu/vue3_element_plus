@@ -1,22 +1,5 @@
-import { createStore } from 'vuex';
-import getters from './getters';
+import { createPinia } from 'pinia';
 
-const modulesFiles = require.context('./modules', true, /\.js$/);
+const store = createPinia();
 
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1');
-  const value = modulesFiles(modulePath);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  modules[moduleName] = value.default;
-  return modules;
-}, {});
-
-export default createStore({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  getters,
-  mutations: {},
-  actions: {},
-  modules,
-});
+export default store;
