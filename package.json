@@ -5,6 +5,7 @@
   "author": "geminglu199698@outlook.com",
   "scripts": {
     "serve:dev": "vue-cli-service serve",
+    "serve:mock": "vue-cli-service serve --mode mock",
     "lint:fix": "npx prettier --write \"src/**/*.{js,jsx,vue,ts,tsx}\" && npx eslint \"src/**/*.{js,jsx,vue,ts,tsx}\" --fix",
     "lint": "npx eslint \"src/**/*.{js,jsx,vue,ts,tsx}\" --fix",
     "lint:prettier": "npx prettier --write \"src/**/*.{js,jsx,vue,ts,tsx}\"",
@@ -16,6 +17,7 @@
     "core-js": "^3.31.0",
     "crypto": "^1.0.1",
     "element-plus": "^2.3.7",
+    "mockjs": "^1.1.0",
     "path-browserify": "^1.0.1",
     "pinia-plugin-persistedstate": "^3.1.0",
     "vue": "^3.3.4",
