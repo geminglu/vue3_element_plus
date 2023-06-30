@@ -1,0 +1,24 @@
+:root {
+  --el-border-radius-base: 2px;
+  --el-border-radius-small: 2px;
+  --el-border-radius-round: 3px;
+
+  --el-color-primary: #009688;
+  --el-color-primary-light-3: #0fb5a5;
+  --el-color-primary-light-5: #27c7b7;
+  --el-color-primary-light-7: #52e3d5;
+  --el-color-primary-light-8: #78eadf;
+  --el-color-primary-light-9: #dffefb;
+  --el-color-primary-dark-2: #058679;
+  --el-color-success: #4caf50;
+  --el-color-success-light-3: #61c165;
+  --el-color-success-light-5: #82cf83;
+  --el-color-success-light-7: #a4dfa5;
+  --el-color-success-light-8: #c7f0c8;
+  --el-color-success-light-9: #eafcea;
+  --el-color-success-dark-2: #349637;
+
+}
+.el-tooltip__trigger:focus {
+  outline: 0;
+}
