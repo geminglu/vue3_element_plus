@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia';
+import { getPublicKey, login, loginDto, queryUserInfo } from '@/serivce/user';
+import { encrypt } from '@/utils/encrypt';
+
 export interface userInfoType {
   /**
    * 头像
@@ -32,7 +35,7 @@ export interface userInfoType {
    * 角色，0：管理员：1：普通用户
    */
   role?: '1' | '0';
-  id: string
+  id: string;
 }
 
 export interface userType {
@@ -63,6 +66,45 @@ const useUserStore = defineStore('userStore', {
       this.refresh_token = refreshToken;
     },
 
+    /**
+     * 获取公钥
+     */
+    async genPublicKey() {
+      // 获取公钥
+      const publicKey = await getPublicKey();
+      this.publicKey = publicKey.data;
+      return publicKey.data;
+    },
+
+    /**
+     * 登陆
+     */
+    async longIn(data: loginDto) {
+      // 加密
+      const pasEncrypted = await encrypt(data.password);
+      const accountEncrypted = await encrypt(data.account);
+
+      const param = {
+        account: accountEncrypted || '',
+        password: pasEncrypted || '',
+        captchaCode: data.captchaCode,
+        captchaId: data.captchaId,
+      };
+      const result = await login(param);
+      this.setToken(result.data?.access_token, result.data?.refresh_token);
+
+      // 登陆成功后获取用户信息
+      this.getUserInfo();
+      return result;
+    },
+
+    /**
+     * 获取用户详情
+     */
+    async getUserInfo() {
+      const result = await queryUserInfo();
+      this.userInfo = result.data || null;
+    },
 
     /**
      *  退出登陆
