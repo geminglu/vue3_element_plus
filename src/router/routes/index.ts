@@ -1,4 +1,5 @@
 import type { AppRouteRecordRaw } from '#/router';
+import Layout from '@/layout/index.vue';
 
 const modulesFiles = require.context('./modules', true, /\.ts$/);
 
