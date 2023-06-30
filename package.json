@@ -8,6 +8,7 @@
     "lint:fix": "npx prettier --write \"src/**/*.{js,jsx,vue,ts,tsx}\" && npx eslint \"src/**/*.{js,jsx,vue,ts,tsx}\" --fix",
     "lint": "npx eslint \"src/**/*.{js,jsx,vue,ts,tsx}\" --fix",
     "lint:prettier": "npx prettier --write \"src/**/*.{js,jsx,vue,ts,tsx}\"",
+    "icon": "node ./scripts/icon.js",
     "build": "vue-cli-service build"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.15.1",
     "less": "^4.1.3",
+    "request": "^2.88.2",
     "less-loader": "^11.1.3",
     "lint-staged": "^13.2.3",
     "typescript": "^5.1.6"
