@@ -13,6 +13,17 @@ const asyncRoutes: Array<AppRouteRecordRaw> = [
         component: () => import('@/views/menu/index.vue'),
         name: 'Menu',
       },
+      {
+        path: '/userList',
+        name: 'UserManage',
+        component: () => import('@/views/userManage/index.vue'),
+      },
+      {
+        path: 'createPage',
+        component: () => import('@/views/construct/createPage/index.vue'),
+        name: 'CreatePage',
+        meta: { title: '创建页面', icon: 'icon-order' },
+      },
     ],
   },
 ];
