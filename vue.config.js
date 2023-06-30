@@ -3,6 +3,7 @@ const AutoImport = require('unplugin-auto-import/webpack');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -31,6 +32,9 @@ module.exports = defineConfig({
     ],
   },
   chainWebpack: (config) => {
+    if (process.env.use_analyzer) {
+      config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
+    }
 
     // 内置的svg处理排除指定目录下的文件
     config.module.rule('svg').exclude.add(resolve('src/assets/svg')).end();
