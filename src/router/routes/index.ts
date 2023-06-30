@@ -16,4 +16,10 @@ export const syncRoutes: AppRouteRecordRaw[] = modulesFiles.keys().reduce((modul
  * 静态路由
  */
 export const constantRoutes: Array<AppRouteRecordRaw> = [
+  /** 登录页 */
+  {
+    path: '/signIn',
+    name: 'SignIn',
+    component: () => import('@/views/logIn/index.vue'),
+  },
 ];
