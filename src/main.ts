@@ -7,6 +7,7 @@ import './style/defaultTheme.css';
 import store from './store';
 import SvgIcon from '@/components/SvgIcon/index.vue';
 import './components/SvgIcon/index';
+import App from './App.vue';
 
 const app = createApp(App);
 app.component('svg-icon', SvgIcon);
