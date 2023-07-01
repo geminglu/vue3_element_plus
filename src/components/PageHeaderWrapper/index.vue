@@ -38,7 +38,6 @@ function navigation(path?: string) {
   .page-header {
     padding: 0 12px;
     height: 45px;
-    background-color: white;
     .back {
       display: inline-block;
       line-height: 45px;
@@ -47,23 +46,17 @@ function navigation(path?: string) {
       .icon {
         vertical-align: middle;
       }
-      span {
-        color: rgba(21, 21, 21, 0.85);
-      }
     }
     .title {
       display: inline-block;
       line-height: 45px;
       margin: 0;
-      color: rgba(21, 21, 21, 0.85);
       font-size: 20px;
       vertical-align: middle;
     }
   }
   .con {
-    // height: calc(100vh - 180px);
     padding: 12px;
-    background-color: white;
   }
 }
 </style>

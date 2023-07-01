@@ -48,7 +48,7 @@ function showCollapse(value: boolean) {
   flex-direction: column;
 }
 .aside {
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--el-border-color);
   margin-right: 12px;
 }
 .content {
@@ -61,13 +61,13 @@ function showCollapse(value: boolean) {
 }
 .aside_footer {
   height: 40px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--el-border-color);
 }
 .show_collapse {
   font-size: 22px;
   line-height: 40px;
   margin-left: 12px;
   cursor: pointer;
-  color: #3b3b3b;
+  color: var(--el-text-color-primary);
 }
 </style>

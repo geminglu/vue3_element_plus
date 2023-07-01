@@ -28,13 +28,6 @@ const useAppStore = defineStore('appStore', {
     delkeepAlives(value: string) {
       this.keepAlives.includes(value) && this.keepAlives.splice(this.keepAlives.indexOf(value), 1);
     },
-
-    /**
-     * 切换暗黑主题
-     */
-    switchoverDark() {
-      this.layout.darkTheme = !this.layout.darkTheme;
-    },
   },
 });
 

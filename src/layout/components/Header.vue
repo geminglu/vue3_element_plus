@@ -1,13 +1,15 @@
 <template>
   <div class="header">
     <ul class="operate">
-      <el-switch
-        v-model="appStore.layout.darkTheme"
-        inline-prompt
-        class="pure-datatheme"
-        :active-icon="Sunny"
-        :inactive-icon="Moon"
-      />
+      <li class="operate_item">
+        <el-switch
+          v-model="isDark"
+          inline-prompt
+          class="pure-datatheme"
+          :active-action-icon="Moon"
+          :inactive-action-icon="Sunny"
+        />
+      </li>
       <el-dropdown ref="dropdown" class="user_dropdown">
         <li class="operate_item">
           <el-image
@@ -36,7 +38,7 @@
         <h4>布局编辑</h4>
       </template>
       <template #default>
-        <div></div>
+        <Setting />
       </template>
     </el-drawer>
   </div>
@@ -44,23 +46,21 @@
 
 <script setup lang="tsx">
 import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import useUserStore from '@/store/modules/user';
 import type { DropdownInstance } from 'element-plus';
-import SvgIcon from '@/components/SvgIcon/index.vue';
 import { Sunny, Moon } from '@element-plus/icons-vue';
-import useAppStore from '@/store/modules/app';
+import { useDark } from '@vueuse/core';
+import Setting from '@/layout/components/setting/index.vue';
 
 defineOptions({
-  name: 'Header',
+  name: 'HeaderLayout',
 });
 
-const a = ref(false);
+const isDark = useDark();
 
 const dropdown = ref<DropdownInstance>();
 const userStore = useUserStore();
-const appStore = useAppStore();
-const route = useRoute();
 const router = useRouter();
 const drawer = ref(false);
 
@@ -78,7 +78,7 @@ function exitlogin() {
 <style scoped lang="less">
 .header {
   height: 48px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--el-border-color);
 }
 .operate {
   height: 100%;
@@ -88,17 +88,13 @@ function exitlogin() {
   margin: 0 24px;
   .operate_item {
     display: flex;
-    padding: 0;
     margin: 0;
     height: 100%;
     padding: 0 12px;
     list-style: none;
     align-items: center;
+    color: var(--el-text-color-primary);
     cursor: pointer;
-    color: #151515;
-    &:hover {
-      background-color: #eee;
-    }
   }
 }
 .user_dropdown {

@@ -41,6 +41,6 @@ const systemMenu = computed(() => permissioStore.systemMenu);
 
 <style lang="less" scoped>
 .menu-vertical {
-  // width: 200px;
+  border-right: none;
 }
 </style>
