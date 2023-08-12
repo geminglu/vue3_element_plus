@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getMenu } from '@/serivce/system';
+import { getPermissionMenu } from '@/serivce/system';
 import { syncRoutes, constantRoutes } from '@/router/routes';
 import { arrayToTree, flattenTree } from '@/utils';
 import router from '@/router';
@@ -27,7 +27,7 @@ const usePermissioStore = defineStore('permissionStore', {
 
       let menus = [];
       try {
-        const result = await getMenu();
+        const result = await getPermissionMenu();
         menus =
           result.data?.map((item: any) => ({
             ...item,

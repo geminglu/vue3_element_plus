@@ -66,6 +66,16 @@ export function getMenu() {
 }
 
 /**
+ * 获取权限菜单
+ */
+export function getPermissionMenu() {
+  return request<ResSystemMenuDto[]>({
+    url: '/v1/system/permissionMenu',
+    method: 'get',
+  });
+}
+
+/**
  * 创建系统菜单
  */
 export function createMenu(data: addSystemMenu) {
