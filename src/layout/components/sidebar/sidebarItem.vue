@@ -5,7 +5,7 @@
         <el-icon>
           <span class="iconfont" :class="`icon-${item.icon}`"></span>
         </el-icon>
-        <span>{{ item.title }}</span>
+        <span class="sub_menu_title">{{ item.title }}</span>
       </template>
       <SidebarItem
         v-for="router in item.children"
@@ -14,8 +14,10 @@
         :basePath="router.name"
       />
     </el-sub-menu>
-    <el-menu-item v-if="item.type === 'menu'" :index="item.name" :route="item">
-      <template #title>{{ item.title }}</template>
+    <el-menu-item v-if="item.type === 'menu'" :index="item.name" :route="item" class="menu_item">
+      <template #title>
+        <span class="menu_title">{{ item.title }}</span>
+      </template>
     </el-menu-item>
   </template>
 </template>
@@ -35,3 +37,9 @@ interface PropsType {
 
 defineProps<PropsType>();
 </script>
+
+<style scoped lang="less">
+.sub_menu_title {
+  width: 150px;
+}
+</style>

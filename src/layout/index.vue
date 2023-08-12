@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="cont">
     <Header />
     <div class="content">
       <div class="aside">
@@ -42,7 +42,7 @@ function showCollapse(value: boolean) {
 </script>
 
 <style lang="less" scoped>
-.container {
+.cont {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -50,6 +50,7 @@ function showCollapse(value: boolean) {
 .aside {
   border-right: 1px solid var(--el-border-color);
   margin-right: 12px;
+  background-color: var(--menuBg);
 }
 .content {
   display: flex;
@@ -58,6 +59,7 @@ function showCollapse(value: boolean) {
 }
 .main-container {
   flex: 1;
+  overflow: hidden;
 }
 .aside_footer {
   height: 40px;
