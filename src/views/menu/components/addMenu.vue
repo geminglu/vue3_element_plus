@@ -27,6 +27,9 @@
     <el-form-item label="隐藏显示" prop="hidden">
       <el-switch v-model="form.hidden" />
     </el-form-item>
+    <el-form-item label="启用" prop="status">
+      <el-switch v-model="form.status" active-value="1" inactive-value="0" />
+    </el-form-item>
   </el-form>
 </template>
 
@@ -46,6 +49,7 @@ interface MenuType {
   icon?: string;
   type?: string;
   hidden?: boolean;
+  status?: '0' | '1';
 }
 const props = defineProps({
   data: {
@@ -60,12 +64,14 @@ const form = reactive({
   icon: props.data?.icon || '',
   type: props.data?.type || 'directory',
   hidden: props.data?.hidden || false,
+  status: props.data?.status || '1',
 });
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   title: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   icon: [{ required: true, message: '请选择icon', trigger: 'blur' }],
   type: [{ required: false, message: '请选择类型', trigger: 'blur' }],
+  status: [{ required: false }],
 });
 
 function openSelectIcon(value = '') {
