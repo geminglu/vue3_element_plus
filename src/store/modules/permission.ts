@@ -1,44 +1,44 @@
 import { defineStore } from 'pinia';
 import { getMenu } from '@/serivce/system';
 import { syncRoutes, constantRoutes } from '@/router/routes';
-import type { AppRouteRecordRaw, systemMenuType } from '#/router';
-import { arrayToTree } from '@/utils';
+import { arrayToTree, flattenTree } from '@/utils';
 import router from '@/router';
+import type { AppRouteRecordRaw, systemMenuType } from '#/router';
 
 export interface userType {
   addRoute: AppRouteRecordRaw[];
   systemMenu: systemMenuType[];
+  flattenConstantRoutes: AppRouteRecordRaw[];
 }
 
 const usePermissioStore = defineStore('permissionStore', {
   state: (): userType => ({
     addRoute: [],
     systemMenu: [],
+    /**
+     * 静态路由平铺的数据
+     */
+    flattenConstantRoutes: [],
   }),
 
   actions: {
     async getSystemMenu() {
-      const result = await getMenu();
-      const menus =
-        result.data?.map((item: any) => ({
-          ...item,
-          hidden: item.hidden !== '0',
-        })) || [];
+      this.flattenConstantRoutes = flattenTree(constantRoutes);
+
+      let menus = [];
+      try {
+        const result = await getMenu();
+        menus =
+          result.data?.map((item: any) => ({
+            ...item,
+            hidden: item.hidden !== '0',
+          })) || [];
+      } catch (error) {}
       this.systemMenu = arrayToTree(menus);
 
       const routes = this.reRoutes(menus, syncRoutes);
 
       this.addRoute = routes;
-      // 获取当前默认路由
-      const currenRoutes = constantRoutes;
-
-      routes.forEach((item) => {
-        // has用于判断当前路由中是否已经具有，避免重复
-        const has = currenRoutes.some((it) => it.path === item.path);
-        if (!has) {
-          currenRoutes.push(item);
-        }
-      });
 
       routes.forEach((item: any) => {
         router.addRoute(item);
@@ -55,7 +55,11 @@ const usePermissioStore = defineStore('permissionStore', {
     reRoutes(menu: systemMenuType[], routes: AppRouteRecordRaw[]): AppRouteRecordRaw[] {
       const route: AppRouteRecordRaw[] = [];
       routes.forEach((item) => {
-        if (menu.filter((f) => f.name === item.name).length) {
+        // 验证一步路由在菜单中存在后在静态路由中存在
+        if (
+          menu.map((i) => i.name).includes(item.name) ||
+          this.flattenConstantRoutes.map((i) => i.name).includes(item.name)
+        ) {
           const children: AppRouteRecordRaw[] = [];
           if (item.children && item.children.length) {
             children.push(...this.reRoutes(menu, item.children));

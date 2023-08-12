@@ -23,4 +23,23 @@ export const constantRoutes: Array<AppRouteRecordRaw> = [
     name: 'SignIn',
     component: () => import('@/views/logIn/index.vue'),
   },
+  {
+    path: '/',
+    name: 'Home',
+    component: Layout,
+    redirect: '/menu',
+  },
+  {
+    path: '/rootChat',
+    name: 'RootChat',
+    component: () => import('@/views/chat/layout/index.vue'),
+    redirect: '/chat',
+    children: [
+      {
+        path: '/chat/:uuid?',
+        name: 'Chat',
+        component: () => import('@/views/chat/index.vue'),
+      },
+    ],
+  },
 ];

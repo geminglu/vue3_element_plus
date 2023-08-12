@@ -6,7 +6,6 @@ const asyncRoutes: Array<AppRouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Layout,
-    redirect: '/menu',
     children: [
       {
         path: '/menu',
@@ -23,6 +22,11 @@ const asyncRoutes: Array<AppRouteRecordRaw> = [
         component: () => import('@/views/construct/createPage/index.vue'),
         name: 'CreatePage',
         meta: { title: '创建页面', icon: 'icon-order' },
+      },
+      {
+        path: '/layout',
+        name: 'Layout',
+        component: () => import('@/views/layout/index.vue'),
       },
     ],
   },

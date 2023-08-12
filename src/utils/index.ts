@@ -47,3 +47,24 @@ export function arrayToTree(list: any[], root = null) {
   // 将结果返回
   return result;
 }
+
+/**
+ * 树型结构平铺
+ * @param tree 树型数组
+ * @returns 平铺后的数据
+ */
+export function flattenTree(tree: any[]): any[] {
+  const result = [];
+  const queue = tree;
+
+  while (queue.length > 0) {
+    const node = queue.shift();
+    result.push(node);
+
+    if (node.children && node.children.length > 0) {
+      queue.push(...node.children); // 将子节点加入队列
+    }
+  }
+
+  return result;
+}
