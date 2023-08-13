@@ -10,6 +10,7 @@ import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 import { useDark } from '@vueuse/core';
 import { darkChange } from '@/layout/hooks/useThemeChange';
+import useUserStore from '@/store/modules/user.ts';
 
 useDark();
 watch(
@@ -21,4 +22,8 @@ watch(
     immediate: true,
   }
 );
+
+const useStore = useUserStore();
+
+useStore.verifyAccessToekn();
 </script>

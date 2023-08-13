@@ -7,7 +7,6 @@ import router from '@/router';
 const axiosDefault: AxiosInstance = axios.create({
   timeout: 10000,
   headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-  withCredentials: true,
   baseURL: process.env.VUE_APP_BASE_URL,
 });
 

@@ -160,3 +160,28 @@ export function deleteUser(id: string) {
     method: 'delete',
   });
 }
+
+/**
+ * 验证token有效性
+ */
+export function verifyToekn(token: string) {
+  return request<boolean>({
+    url: '/v1/auth/verifyToekn',
+    method: 'post',
+    data: {
+      access_token: token,
+    },
+  });
+}
+
+/**
+ * 刷新token
+ * @param token refresh_token
+ */
+export function refreshToken(token: string) {
+  return request<loginDtoRequest>({
+    url: '/v1/auth/refreshToekn',
+    method: 'post',
+    data: { refresh_token: token },
+  });
+}

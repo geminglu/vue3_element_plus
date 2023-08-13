@@ -1,5 +1,12 @@
 import { defineStore } from 'pinia';
-import { getPublicKey, login, loginDto, queryUserInfo } from '@/serivce/user';
+import {
+  getPublicKey,
+  login,
+  loginDto,
+  queryUserInfo,
+  verifyToekn,
+  refreshToken,
+} from '@/serivce/user';
 import { encrypt } from '@/utils/encrypt';
 
 export interface userInfoType {
@@ -112,6 +119,30 @@ const useUserStore = defineStore('userStore', {
     logout() {
       this.setToken();
       this.userInfo = null;
+    },
+
+    /**
+     * 刷新token
+     */
+    async refreshToken() {
+      if (!this.refresh_token) return;
+      const result = await refreshToken(this.refresh_token);
+      this.setToken(result.data?.access_token, result.data?.refresh_token);
+    },
+
+    /**
+     * 验证token有效性
+     */
+    async verifyAccessToekn() {
+      // 验证token是否有效，有效需要刷新token无效需要退出登陆
+      if (!this.access_token) return;
+      const verifyRes = await verifyToekn(this.access_token);
+
+      if (verifyRes?.data) {
+        await this.refreshToken();
+      } else {
+        this.logout();
+      }
     },
   },
 });
