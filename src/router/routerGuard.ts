@@ -15,21 +15,13 @@ export default function routerGuard(router: Router) {
       next();
       return;
     }
-    if (!userStore.access_token) {
-      next(`/signIn?to=${to.fullPath}`);
-      return;
-    }
 
     // 如果已经登陆并且没有菜单就要获取菜单
-    if (!permissioStore.systemMenu.length && userStore.access_token) {
+    if (permissioStore.systemMenu === null && userStore.access_token) {
       await permissioStore.getSystemMenu();
 
-      router.addRoute({
-        path: '/:pathMatch(.*)',
-        name: '404',
-        component: () => import('@/views/404.vue'),
-      });
-      next({ ...to, replace: true });
+      const { name, ...res } = to;
+      next({ ...res, replace: true });
       return;
     }
     // 设置路由缓存

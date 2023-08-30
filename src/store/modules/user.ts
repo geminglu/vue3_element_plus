@@ -8,6 +8,7 @@ import {
   refreshToken,
 } from '@/serivce/user';
 import { encrypt } from '@/utils/encrypt';
+import usePermissioStore from './permission';
 
 export interface userInfoType {
   /**
@@ -68,7 +69,7 @@ const useUserStore = defineStore('userStore', {
      * 设置token
      * @param value
      */
-    async setToken(accessToken = '', refreshToken = '') {
+    setToken(accessToken = '', refreshToken = '') {
       this.access_token = accessToken;
       this.refresh_token = refreshToken;
     },
@@ -99,7 +100,7 @@ const useUserStore = defineStore('userStore', {
       };
       const result = await login(param);
       this.setToken(result.data?.access_token, result.data?.refresh_token);
-
+      await usePermissioStore().getSystemMenu();
       // 登陆成功后获取用户信息
       this.getUserInfo();
       return result;
@@ -117,8 +118,12 @@ const useUserStore = defineStore('userStore', {
      *  退出登陆
      */
     logout() {
+      // 清除用户信息
       this.setToken();
       this.userInfo = null;
+
+      // 重置动态路由
+      usePermissioStore().removeRouter();
     },
 
     /**

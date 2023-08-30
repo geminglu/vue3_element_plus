@@ -55,7 +55,7 @@ export function arrayToTree(list: any[], root = null) {
  */
 export function flattenTree(tree: any[]): any[] {
   const result = [];
-  const queue = tree;
+  const queue = deepClone(tree);
 
   while (queue.length > 0) {
     const node = queue.shift();
@@ -67,4 +67,24 @@ export function flattenTree(tree: any[]): any[] {
   }
 
   return result;
+}
+
+/**
+ * 深拷贝
+ * @param source
+ */
+export function deepClone(source: any) {
+  // 过滤特殊情况
+  if (source === null) return null;
+  if (typeof source !== 'object') return source;
+  if (source.constructor === RegExp) return new RegExp(source);
+  if (source.constructor === Date) return new Date(source);
+  const newObj = new source.constructor();
+  for (const key in source) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (source.hasOwnProperty(key)) {
+      newObj[key] = deepClone(source[key]);
+    }
+  }
+  return newObj;
 }
