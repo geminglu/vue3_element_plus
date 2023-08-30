@@ -12,6 +12,7 @@ function resolve(dir) {
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
+  productionSourceMap: false,
   devServer: {
     port: 8081,
     onBeforeSetupMiddleware:
@@ -31,6 +32,7 @@ module.exports = defineConfig({
     resolve: {
       alias: {
         '@': resolve('src'),
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
       fallback: { path: require.resolve('path-browserify') },
     },
