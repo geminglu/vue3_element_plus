@@ -1,24 +1,37 @@
 :root {
-  --el-border-radius-base: 2px;
-  --el-border-radius-small: 2px;
-  --el-border-radius-round: 3px;
+  --el-border-radius-base: 6px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 6px;
 
-  --el-color-primary: #009688;
-  --el-color-primary-light-3: #0fb5a5;
-  --el-color-primary-light-5: #27c7b7;
-  --el-color-primary-light-7: #52e3d5;
-  --el-color-primary-light-8: #78eadf;
-  --el-color-primary-light-9: #dffefb;
-  --el-color-primary-dark-2: #058679;
-  --el-color-success: #4caf50;
-  --el-color-success-light-3: #61c165;
-  --el-color-success-light-5: #82cf83;
-  --el-color-success-light-7: #a4dfa5;
-  --el-color-success-light-8: #c7f0c8;
-  --el-color-success-light-9: #eafcea;
-  --el-color-success-dark-2: #349637;
-
+  --el-text-color-regular: #303133;
+  --el-text-color-secondary: #686a6e;
+  --el-text-color-placeholder: #838588;
 }
 .el-tooltip__trigger:focus {
   outline: 0;
+}
+.el-textarea__inner {
+  box-shadow: 0 0 0 1px var(--el-input-border-color, var(--el-border-color)) inset;
+  background-color: #ffffff;
+}
+.el-textarea__inner:focus {
+  /* background: var(--el-color-primary-light-9); */
+}
+
+html .el-table {
+  --el-table-header-bg-color: #f5f5f5;
+  --el-table-text-color: var(--el-text-color-primary);
+  --el-table-row-hover-bg-color: #fafafa;
+  --el-table-border-color: #f0f0f0;
+}
+
+html .el-table__header {
+  --el-table-header-text-color: var(--el-text-color-primary);
+}
+
+.el-form-item__label {
+  color: var(--el-text-color-primary);
+}
+.el-input__inner {
+  --el-input-text-color: var(--el-text-color-primary);
 }

@@ -1,12 +1,12 @@
 html.dark {
   color-scheme: dark;
-  --el-color-primary: #409eff;
-  --el-color-primary-light-3: #3375b9;
-  --el-color-primary-light-5: #2a598a;
-  --el-color-primary-light-7: #213d5b;
-  --el-color-primary-light-8: #1d3043;
-  --el-color-primary-light-9: #18222c;
-  --el-color-primary-dark-2: #66b1ff;
+  --el-color-primary: #1677ff;
+  --el-color-primary-light-3: #1060d1;
+  --el-color-primary-light-5: #0a4291;
+  --el-color-primary-light-7: #08326e;
+  --el-color-primary-light-8: #052651;
+  --el-color-primary-light-9: #021229;
+  --el-color-primary-dark-2: #3d8eff;
   --el-color-success: #67c23a;
   --el-color-success-light-3: #4e8e2f;
   --el-color-success-light-5: #3e6b27;
@@ -88,4 +88,16 @@ html.dark .el-empty {
   --el-empty-fill-color-7: #1b1c1f;
   --el-empty-fill-color-8: #1c1d1f;
   --el-empty-fill-color-9: #18181a;
+}
+
+html.dark .el-textarea__inner {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .el-table {
+  --el-table-header-bg-color: #242424;
+  --el-table-text-color: var(--el-text-color-primary);
+  --el-table-row-hover-bg-color: #202020;
+  --el-table-border-color: #303030;
 }

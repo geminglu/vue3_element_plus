@@ -1,6 +1,22 @@
 import { request } from '@/utils/request';
 
 /**
+ * 是否隐藏菜单
+ */
+export enum Hidden {
+  NO = '0',
+  YES = '1',
+}
+
+/**
+ * type
+ */
+export enum Type {
+  Directory = 'directory',
+  Menu = 'menu',
+}
+
+/**
  * ResSystemMenuDto
  */
 export interface ResSystemMenuDto {
@@ -38,22 +54,6 @@ export interface ResSystemMenuDto {
 export type addSystemMenu = Omit<ResSystemMenuDto, 'createAt' | 'id'>;
 
 export type exitSystemMenu = Omit<ResSystemMenuDto, 'createAt' | 'pid'>;
-
-/**
- * 是否隐藏菜单
- */
-export enum Hidden {
-  NO = '0',
-  YES = '1',
-}
-
-/**
- * type
- */
-export enum Type {
-  Directory = 'directory',
-  Menu = 'menu',
-}
 
 /**
  * 获取系统菜单

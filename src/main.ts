@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import './assets/icon/iconfont';
 import 'element-plus/dist/index.css';
-import './style/index.css';
+import './style/index.less';
 import router from './router';
 import './style/light.css';
 import './style/dark.css';

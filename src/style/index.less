@@ -1,0 +1,147 @@
+@import url(../assets/icon/iconfont.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(./github-markdown.less);
+@import url(./highlight.less);
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--el-text-color-primary);
+  background-color: var(--el-bg-color);
+}
+
+::selection {
+  background-color: var(--el-color-primary); /* 选中文本的背景颜色 */
+}
+html.default {
+  --subMenuActiveText: #fff;
+  --menuBg: #001529;
+  --menuHover: #1677ff;
+  --subMenuBg: #001529;
+  --subMenuActiveBg: #1677ff;
+  --menuText: rgb(254 254 254 / 65%);
+  --sidebarLogo: #002140;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #1677ff;
+}
+
+html.custom {
+  --subMenuActiveText: var(--el-color-primary);
+  --menuBg: var(--el-fill-color-blank);
+  --menuHover: var(--el-color-primary-light-9);
+  --subMenuBg: var(--el-fill-color-blank);
+  --subMenuActiveBg: var(--el-color-primary-light-7);
+  --menuText: var(--el-text-color-primary);
+}
+
+html.light {
+  --subMenuActiveText: #1677ff;
+  --menuBg: #ffffff;
+  --menuHover: #e0ebf6;
+  --subMenuBg: #fff;
+  --subMenuActiveBg: #c4deff;
+  --menuText: #484848;
+  --sidebarLogo: #fff;
+  --menuTitleHover: #000;
+  --menuActiveBefore: #1677ff;
+}
+
+html.dusk {
+  --subMenuActiveText: #fff;
+  --menuBg: #3e0b0d;
+  --menuHover: #e13c39;
+  --subMenuBg: #290606;
+  --subMenuActiveBg: #e13c39;
+  --menuText: rgb(254 254 254 / 65.1%);
+  --sidebarLogo: #42090c;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #e13c39;
+}
+html.volcano {
+  --subMenuActiveText: #fff;
+  --menuBg: #371409;
+  --menuHover: #e85f33;
+  --subMenuBg: #260f08;
+  --subMenuActiveBg: #e85f33;
+  --menuText: rgb(254 254 254 / 65%);
+  --sidebarLogo: #441708;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #e85f33;
+}
+html.yellow {
+  --subMenuActiveText: #ffffff;
+  --menuBg: #4d420b;
+  --menuHover: #f6da4d;
+  --subMenuBg: #262004;
+  --subMenuActiveBg: #ad9520;
+  --menuText: rgb(254 254 254 / 65%);
+  --sidebarLogo: #443b05;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #f6da4d;
+}
+html.mingQing {
+  --subMenuActiveText: #fff;
+  --menuBg: #032121;
+  --menuHover: #59bfc1;
+  --subMenuBg: #000;
+  --subMenuActiveBg: #59bfc1;
+  --menuText: #cccccc;
+  --sidebarLogo: #053434;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #59bfc1;
+}
+html.auroraGreen {
+  --subMenuActiveText: #fff;
+  --menuBg: #0b1e15;
+  --menuHover: #60ac80;
+  --subMenuBg: #000;
+  --subMenuActiveBg: #60ac80;
+  --menuText: #7a80b4;
+  --sidebarLogo: #112f21;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #60ac80;
+}
+html.pink {
+  --subMenuActiveText: #fff;
+  --menuBg: #28081a;
+  --menuHover: #d84493;
+  --subMenuBg: #000;
+  --subMenuActiveBg: #d84493;
+  --menuText: #7a80b4;
+  --sidebarLogo: #3f0d29;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #d84493;
+}
+html.saucePurple {
+  --subMenuActiveText: #fff;
+  --menuBg: #130824;
+  --menuHover: #693ac9;
+  --subMenuBg: #000;
+  --subMenuActiveBg: #693ac9;
+  --menuText: #7a80b4;
+  --sidebarLogo: #1f0c38;
+  --menuTitleHover: #fff;
+  --menuActiveBefore: #693ac9;
+}
+html.dark {
+  --subMenuActiveText: var(--el-color-primary);
+  --menuBg: var(--el-fill-color-blank);
+  --menuHover: var(--el-color-primary-light-9);
+  --subMenuBg: var(--el-fill-color-blank);
+  --subMenuActiveBg: var(--el-fill-color-blank);
+  --menuText: var(--el-text-color-primary);
+}
