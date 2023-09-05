@@ -15,14 +15,14 @@
           <el-image
             class="user_avatars"
             style="width: 35px; height: 35px"
-            :src="userStore.userInfo?.avatars"
-            fit="fill"
+            :src="`${axiosDefault.defaults.baseURL}${userStore.userInfo?.avatars}`"
+            fit="cover"
           />
           <span>{{ userStore.userInfo?.name }}</span>
         </li>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>用户详情</el-dropdown-item>
+            <el-dropdown-item @click="router.push('/userInfo')">用户详情</el-dropdown-item>
             <el-dropdown-item>修改密码</el-dropdown-item>
             <el-dropdown-item divided @click="exitlogin">退出登陆</el-dropdown-item>
           </el-dropdown-menu>
@@ -52,6 +52,7 @@ import type { DropdownInstance } from 'element-plus';
 import { Sunny, Moon } from '@element-plus/icons-vue';
 import { useDark } from '@vueuse/core';
 import Setting from '@/layout/components/setting/index.vue';
+import axiosDefault from '@/utils/request';
 
 defineOptions({
   name: 'HeaderLayout',

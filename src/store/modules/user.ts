@@ -133,6 +133,8 @@ const useUserStore = defineStore('userStore', {
       if (!this.refresh_token) return;
       const result = await refreshToken(this.refresh_token);
       this.setToken(result.data?.access_token, result.data?.refresh_token);
+      // 登陆成功后获取用户信息
+      this.getUserInfo();
     },
 
     /**

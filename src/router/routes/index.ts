@@ -47,4 +47,9 @@ export const constantRoutes: Array<AppRouteRecordRaw> = [
     name: 'NotFound',
     component: () => import('@/views/404.vue'),
   },
+  {
+    path: '/userInfo',
+    name: 'UserInfo',
+    component: () => import('@/views/userManage/userInfo.vue'),
+  },
 ];

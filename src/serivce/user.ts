@@ -62,7 +62,7 @@ export interface ceratedUser {
   /**
    * 性别，1：男；0：女
    */
-  gender?: '0' | '1';
+  gender?: '0' | '1' | '';
   /**
    * 1：启用；0：禁用
    */
@@ -87,6 +87,33 @@ export interface ceratedUser {
 
 export type updateUserType = Partial<Omit<ceratedUser, 'password'>>;
 
+export type updateMyUserType = Partial<Omit<ceratedUser, 'password' | 'Omit' | 'isActive'>>;
+
+export type updateEmailDto = Pick<ceratedUser, 'email'> & { token: string };
+
+/**
+ * 验证码业务类型
+ */
+export enum verifyType {
+  UpPassword = 'upPassword',
+}
+/**
+ * verifyEmailCodeDto
+ */
+export interface verifyEmailCodeDto {
+  /**
+   * 验证码ID
+   */
+  codeId: string;
+  /**
+   * 业务类型
+   */
+  type: verifyType;
+  /**
+   * 邮箱验证码
+   */
+  verifyCode: string;
+}
 /**
  * 获取图形验证吗
  */
@@ -144,7 +171,18 @@ export function createdUser(data: ceratedUser) {
  */
 export function updateUser(id: string, data: updateUserType) {
   return request<userInfoType>({
-    url: `/v1/user/${id}`,
+    url: `/v1/user/info${id}`,
+    method: 'patch',
+    data,
+  });
+}
+
+/**
+ * 更新用户信息
+ */
+export function updateMyUser(data: updateMyUserType) {
+  return request<userInfoType>({
+    url: '/v1/user',
     method: 'patch',
     data,
   });
@@ -183,5 +221,36 @@ export function refreshToken(token: string) {
     url: '/v1/auth/refreshToekn',
     method: 'post',
     data: { refresh_token: token },
+  });
+}
+
+/**
+ * 发送邮箱验证码
+ * @param email
+ */
+export function generateEmailCode(email: string) {
+  return request<string>({
+    url: '/v1/auth/generateEmailCode',
+    method: 'post',
+    data: { email },
+  });
+}
+
+/**
+ * 验证邮箱验证码
+ */
+export function verifyEmailCode(data: verifyEmailCodeDto) {
+  return request<string>({
+    url: '/v1/auth/verifyEmailCode',
+    method: 'post',
+    data,
+  });
+}
+
+export function updateEmail(data: updateEmailDto) {
+  return request<string>({
+    url: '/v1/user/upEmial',
+    method: 'patch',
+    data,
   });
 }

@@ -43,7 +43,8 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SelectMenuIcon: typeof import('./src/components/selectMenuIcon/index.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
-    Table: typeof import('./src/components/baseUi/table/Table.vue')['default']
+    Table: typeof import('./src/components/baseUi/tables/Table.vue')['default']
+    UpEmail: typeof import('./src/components/Verify/upEmail.vue')['default']
     Upload: typeof import('./src/components/baseUi/upload/index.vue')['default']
   }
   export interface ComponentCustomProperties {
