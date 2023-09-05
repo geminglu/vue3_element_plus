@@ -17,11 +17,13 @@
     :close-auto-focus="closeAutoFocus"
     height="200px"
     class="base_modal"
+    :class="isFullscreen ? '' : 'fullscreen_modal'"
   >
     <template #header="{ close, titleId, titleClass }">
       <div class="header">
         <slot name="header" :close="close" :title-id="titleId" :title-class="titleClass" />
         <expandDom
+          class="header_title"
           v-if="header && !$slots.header"
           :render="header"
           :params="{ close, titleId, titleClass }"
@@ -165,6 +167,9 @@ const expandDom = defineComponent({
     overflow: hidden;
   }
 }
+.fullscreen_modal {
+  max-width: calc(100vw - 32px);
+}
 </style>
 <style scoped lang="less">
 .modal_body {
@@ -178,6 +183,8 @@ const expandDom = defineComponent({
 
   .header_title {
     margin: 0;
+    font-size: 18px;
+    font-weight: bold;
   }
 
   .butgure {
@@ -189,7 +196,7 @@ const expandDom = defineComponent({
       margin-left: 6px;
       padding: 6px;
       cursor: pointer;
-      color: #404040;
+      color: var(--el-color-info);
 
       &:hover {
         color: var(--el-color-primary);
