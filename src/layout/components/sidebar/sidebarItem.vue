@@ -7,12 +7,7 @@
         </el-icon>
         <span class="sub_menu_title">{{ item.title }}</span>
       </template>
-      <SidebarItem
-        v-for="router in item.children"
-        :key="router.id"
-        :item="router"
-        :basePath="router.name"
-      />
+      <SidebarItem v-for="router in item.children" :key="router.id" :item="router" />
     </el-sub-menu>
     <el-menu-item v-if="item.type === 'menu'" :index="item.name" :route="item" class="menu_item">
       <template #title>
@@ -32,7 +27,6 @@ defineOptions({
 
 interface PropsType {
   item: systemMenuType;
-  basePath: string;
 }
 
 defineProps<PropsType>();

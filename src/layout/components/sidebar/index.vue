@@ -7,12 +7,7 @@
     class="menu"
     :collapse="appStore.menuCollapse"
   >
-    <SidebarItem
-      v-for="router in systemMenu"
-      :key="router.id"
-      :item="router"
-      :basePath="router.name"
-    />
+    <SidebarItem v-for="router in systemMenu" :key="router.id" :item="router" />
   </el-menu>
 </template>
 
@@ -43,6 +38,7 @@ const systemMenu = computed(() => permissioStore.systemMenu);
 .menu {
   border-right: none;
   background-color: var(--menuBg);
+  user-select: none;
   :deep(.el-menu) {
     background-color: var(--subMenuBg);
   }

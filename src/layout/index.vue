@@ -33,6 +33,8 @@ import Main from './components/Main.vue';
 import Aside from './components/Aside.vue';
 import Header from './components/Header.vue';
 import useAppStore from '@/store/modules/app';
+import TagsView from './components/TagsView/index.vue';
+import Footer from './components/Footer.vue';
 
 const appStore = useAppStore();
 
