@@ -9,15 +9,16 @@
     :fullscreen="isFullscreen"
     :draggable="draggable"
     :align-center="!top && alignCenter"
-    :open="open"
-    :opened="opened"
-    :close="close"
-    :closed="closed"
-    :open-auto-focus="openAutoFocus"
-    :close-auto-focus="closeAutoFocus"
+    @open="open"
+    @opened="opened"
+    @close="close"
+    @closed="closed"
+    @open-auto-focus="openAutoFocus"
+    @close-auto-focus="closeAutoFocus"
     height="200px"
     class="base_modal"
     :class="isFullscreen ? '' : 'fullscreen_modal'"
+    :close-on-click-modal="closeOnClickModal"
   >
     <template #header="{ close, titleId, titleClass }">
       <div class="header">
@@ -74,6 +75,8 @@ const props = withDefaults(defineProps<Partial<BaseModalProps>>(), {
   alignCenter: true,
   showFullscreen: true,
   isShowFooter: true,
+  comfirmText: '确认',
+  closeOnClickModal: false,
   onConfirm: () => {},
 });
 

@@ -21,6 +21,10 @@ export interface BaseModalProps {
   footer?: (() => JSX.Element) | JSX.Element;
   /** body */
   body?: (() => JSX.Element) | JSX.Element;
+  /** 确认按钮的描述 */
+  comfirmText?: string;
+  /** 是否可以通过点击 遮罩 关闭 Dialog */
+  closeOnClickModal?: boolean;
   isShowFooter: boolean;
   /** 对话框标题的内容；会替换标题部分，但不会移除关闭按钮 */
   header?:

@@ -5,5 +5,21 @@
   "i18n-ally.sortKeys": true,
   "i18n-ally.keepFulfilled": true,
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.sourceLanguage": "zh-CN"
+  "i18n-ally.sourceLanguage": "zh-CN",
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "localhost",
+      "database": "application",
+      "username": "root",
+      "password": "123456"
+    }
+  ]
 }

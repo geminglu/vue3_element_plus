@@ -95,7 +95,7 @@ export type updateEmailDto = Pick<ceratedUser, 'email'> & { token: string };
  * 验证码业务类型
  */
 export enum verifyType {
-  UpPassword = 'upPassword',
+  UPEMAIL = 'UPEMAIL',
 }
 /**
  * verifyEmailCodeDto

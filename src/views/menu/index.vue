@@ -177,7 +177,7 @@ function editMenu(data: ResSystemMenuDto) {
     title: '新增',
     width: '500px',
     draggable: true,
-    body: <AddMenu data={{ ...data, hidden: data.hidden === '0' ? false : true }}></AddMenu>,
+    body: <AddMenu data={{ ...data, hidden: data.hidden !== '0' }}></AddMenu>,
     onConfirm: async () => {
       try {
         const vmBody = modal.vm.props.body!.component!;

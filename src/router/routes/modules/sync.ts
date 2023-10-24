@@ -29,6 +29,11 @@ const asyncRoutes: Array<AppRouteRecordRaw> = [
         component: () => import('@/views/layout/index.vue'),
       },
       {
+        path: '/loginLog',
+        name: 'LoginLog',
+        component: () => import('@/views/userManage/logInLog.vue'),
+      },
+      {
         path: '/userInfo',
         name: 'UserInfo',
         component: () => import('@/views/userManage/userInfo.vue'),

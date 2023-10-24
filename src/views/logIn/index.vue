@@ -81,7 +81,7 @@ const loginFormRules = reactive<FormRules>({
   ],
   password: [
     { required: true, message: '密码不能为空', trigger: 'blur' },
-    { max: 30, min: 3, message: '用户名长度为3-30位字符' },
+    { max: 30, min: 3, message: '密码长度为3-30位字符' },
   ],
   code: [
     { required: true, message: '验证码不能为空', trigger: 'blur' },

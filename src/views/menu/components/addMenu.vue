@@ -81,6 +81,7 @@ function openSelectIcon(value = '') {
     draggable: true,
     body: <SelectMenuIcon select={value} />,
     onConfirm: () => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
       const vmBody = modal.vm.props?.body!.component!;
       form.icon = vmBody.exposed.currentSelect.value;
     },
