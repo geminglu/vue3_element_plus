@@ -4,6 +4,7 @@ import { syncRoutes, constantRoutes } from '@/router/routes';
 import { arrayToTree, flattenTree } from '@/utils';
 import router from '@/router';
 import type { AppRouteRecordRaw, systemMenuType } from '#/router';
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 
 export interface userType {
   addRoute: AppRouteRecordRaw[];
@@ -69,18 +70,18 @@ const usePermissioStore = defineStore('permissionStore', {
      */
     reRoutes(menu: systemMenuType[], routes: AppRouteRecordRaw[]): AppRouteRecordRaw[] {
       const route: AppRouteRecordRaw[] = [];
-      routes.forEach((item) => {
+      const syncRoutes = createRouter({
+        routes: routes as unknown as RouteRecordRaw[],
+        history: createWebHistory(),
+      }).getRoutes();
+
+      syncRoutes.forEach((item) => {
         // 验证异步路由在菜单中存在后在静态路由中存在
-        const constantRoute = this.flattenConstantRoutes.filter((f) => f.name === item.name);
-        if (menu.map((i) => i.name).includes(item.name) || constantRoute.length) {
-          const children: AppRouteRecordRaw[] = [];
-          if (item.children && item.children.length) {
-            children.push(...this.reRoutes(menu, item.children));
-          }
+        const constantRoute = this.flattenConstantRoutes.filter((f) => f.path === item.path);
+        if (menu.map((i) => i.path).includes(item.path) || constantRoute.length) {
           route.push({
             ...constantRoute[0],
             ...item,
-            children,
           });
         }
       });

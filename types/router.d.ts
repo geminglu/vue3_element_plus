@@ -69,6 +69,7 @@ export type systemMenuType = {
    */
   name: string;
   children?: systemMenuType[];
+  path?: string;
 };
 
 declare module 'vue-router' {

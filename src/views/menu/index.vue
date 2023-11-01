@@ -1,6 +1,5 @@
 <template>
   <PageHeaderWrapper title="菜单管理">
-    <!-- <Table :date-set="dataSet" :paging="false" :header-buttons="buttons" /> -->
     <BaseTable :dateSet="dataSet" :headerButtons="buttons" />
   </PageHeaderWrapper>
 </template>
@@ -44,6 +43,11 @@ const dataSet = new DataSet({
       type: 'text',
     },
     {
+      name: 'path',
+      label: '路由地址',
+      type: 'text',
+    },
+    {
       name: 'type',
       label: '类型',
       type: 'text',
@@ -72,21 +76,21 @@ const renderMenu = (param: any) => {
     });
   }
   if (param?.type === 'directory') {
-    but.push({
-      type: 'add',
-      name: '新增',
-    });
+    but.push(
+      {
+        type: 'editMenu',
+        name: '编辑',
+      },
+      {
+        type: 'add',
+        name: '新增',
+      }
+    );
   }
-  but.push(
-    {
-      type: 'editMenu',
-      name: '编辑',
-    },
-    {
-      type: 'delMenu',
-      name: '删除',
-    }
-  );
+  but.push({
+    type: 'delMenu',
+    name: '删除',
+  });
   const dropdown = {
     dropdown: () => (
       <el-dropdown-menu>
@@ -102,7 +106,7 @@ const renderMenu = (param: any) => {
   };
 
   return (
-    <>
+    <span>
       {...but.map((item, index) => {
         return index <= 1 ? (
           <>
@@ -131,7 +135,7 @@ const renderMenu = (param: any) => {
           </el-dropdown>
         </>
       ) : null}
-    </>
+    </span>
   );
 };
 

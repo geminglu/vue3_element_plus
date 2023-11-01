@@ -9,8 +9,8 @@
     <el-form-item label="菜单名称" prop="title">
       <el-input v-model="form.title" />
     </el-form-item>
-    <el-form-item v-if="form.type === 'menu'" label="路由名称" prop="name">
-      <el-input v-model="form.name" />
+    <el-form-item v-if="form.type === 'menu'" label="路由地址" prop="path">
+      <el-input v-model="form.path" />
     </el-form-item>
     <el-form-item v-if="form.type === 'directory'" label="icon" prop="icon">
       <el-input readonly v-model="form.icon" placeholder="选择icon">
@@ -44,7 +44,7 @@ defineOptions({
 });
 
 interface MenuType {
-  name?: string;
+  path?: string;
   title?: string;
   icon?: string;
   type?: string;
@@ -59,7 +59,7 @@ const props = defineProps({
 
 const ruleFormRef = ref<FormInstance>();
 const form = reactive({
-  name: props.data?.name || '',
+  path: props.data?.path || '',
   title: props.data?.title || '',
   icon: props.data?.icon || '',
   type: props.data?.type || 'directory',
@@ -67,7 +67,7 @@ const form = reactive({
   status: props.data?.status || '1',
 });
 const rules = reactive<FormRules>({
-  name: [{ required: true, message: '这个必填项', trigger: 'blur' }],
+  path: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   title: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   icon: [{ required: true, message: '请选择icon', trigger: 'blur' }],
   type: [{ required: false, message: '请选择类型', trigger: 'blur' }],

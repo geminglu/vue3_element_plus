@@ -29,7 +29,7 @@ const permissioStore = usePermissioStore();
 /**
  * 当前激活的路由
  */
-const activeMenu = computed<string>(() => (route.name as string) || '');
+const activeMenu = computed<string>(() => (route.path as string) || '');
 
 const systemMenu = computed(() => permissioStore.systemMenu);
 </script>
