@@ -100,9 +100,9 @@ const useUserStore = defineStore('userStore', {
       };
       const result = await login(param);
       this.setToken(result.data?.access_token, result.data?.refresh_token);
-      await usePermissioStore().getSystemMenu();
+
       // 登陆成功后获取用户信息
-      this.getUserInfo();
+      await Promise.all([await usePermissioStore().getSystemMenu(), this.getUserInfo()]);
       return result;
     },
 

@@ -1,22 +1,21 @@
 <template>
   <PageHeaderWrapper title="菜单管理">
-    <Table :date-set="dataSet" :paging="false" :header-buttons="buttons" />
+    <!-- <Table :date-set="dataSet" :paging="false" :header-buttons="buttons" /> -->
+    <BaseTable :dateSet="dataSet" :headerButtons="buttons" />
   </PageHeaderWrapper>
 </template>
 
 <script setup lang="tsx">
-import { onMounted } from 'vue';
-import Table from '@/components/baseUi/table/Table.vue';
-import { DataSet } from '@/components/baseUi/table/index';
 import { ElMessage, ElMessageBox } from 'element-plus';
+import BaseTable from '@/components/baseUi/tables/Table.vue';
 import Modal from '@/components/baseUi/modal';
-import { ArrowDown, Plus } from '@element-plus/icons-vue';
-import { systemMenuType } from '#/router';
+import { ArrowDown } from '@element-plus/icons-vue';
 import { createMenu, editSystemMenu, deleSystemMenu } from '@/serivce/system';
 import { arrayToTree } from '@/utils';
-import type { headerButtonsType, headerButton } from '@/components/baseUi/table/type';
+import type { headerButtonsType } from '@/components/baseUi/table/type';
 import AddMenu from './components/addMenu.vue';
 import type { ResSystemMenuDto } from '@/serivce/system';
+import { DataSet } from '@/components/baseUi/tables/index';
 
 defineOptions({
   name: 'SystemMenu',
@@ -28,21 +27,16 @@ type operate = {
   name: string;
 };
 
-const dataSet = DataSet({
+const dataSet = new DataSet({
   autoQuery: true,
-  query: [],
   primaryKey: 'id',
-  transport: {
-    read: () => {
-      return {
-        url: '/v1/system/menu',
-        method: 'get',
-      };
+  queryUrl: '/v1/system/menu',
+  events: {
+    response: (param) => {
+      return arrayToTree(param || []);
     },
   },
-  response: (param) => {
-    return arrayToTree(param || []);
-  },
+
   fields: [
     {
       name: 'title',
@@ -171,8 +165,6 @@ function addMenu(pid?: string) {
  * 编辑菜单
  */
 function editMenu(data: ResSystemMenuDto) {
-  console.log(data);
-
   const modal = Modal.open({
     title: '新增',
     width: '500px',

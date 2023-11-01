@@ -59,7 +59,7 @@ declare module 'vue' {
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
     Table: typeof import('./src/components/baseUi/tables/Table.vue')['default']
     UpEmail: typeof import('./src/components/Verify/upEmail.vue')['default']
-    Upload: typeof import('./src/components/baseUi/upload/index.vue')['default']
+    Uplook: typeof import('./src/components/baseUi/uplook/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

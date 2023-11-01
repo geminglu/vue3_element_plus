@@ -10,6 +10,9 @@
       <SidebarItem v-for="router in item.children" :key="router.id" :item="router" />
     </el-sub-menu>
     <el-menu-item v-if="item.type === 'menu'" :index="item.name" :route="item" class="menu_item">
+      <el-icon v-if="item.icon">
+        <span class="iconfont" :class="`icon-${item.icon}`"></span>
+      </el-icon>
       <template #title>
         <span class="menu_title">{{ item.title }}</span>
       </template>

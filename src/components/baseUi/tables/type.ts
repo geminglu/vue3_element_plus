@@ -30,11 +30,35 @@ interface uplookType {
 }
 export interface QueryType {
   name: string;
-  type: string;
+  type: 'uplook' | 'text';
   label: string;
   /** 默认值 */
   defaultValue?: any;
   uplookList?: uplookType[];
+  url?: string;
+  fieldId?: string;
+  fielidText?: string;
+}
+
+interface EventType {
+  /**
+   * 点击搜索表单重置时调用
+   */
+  reset: () => void;
+  /**
+   * 查询事件前，返回值为 false 将阻止查询
+   * @description 如果返回 false 将停止查询，如果返回对象会覆盖查询参数，如果返回 undefined 不会影响查询逻辑
+   */
+  beforeQuery: (data: {
+    // eslint-disable-next-line no-use-before-define
+    dataSet: DateSetType;
+    params: { [index: string]: any };
+  }) => { [index: string]: any } | boolean | void;
+  /**
+   * 响应拦截器
+   * @description 需要返回一组数据
+   */
+  response: (res: any[]) => any[];
 }
 
 export interface configType {
@@ -43,12 +67,10 @@ export interface configType {
   autoQuery?: boolean;
   /** transport 存在时queryUrl将无效 */
   queryUrl?: string;
-  queryParameter?: { [index: string]: string };
+  queryParameter?: { [index: string]: any };
   /** transport 存在时queryUrl将无效 */
   transport?: TransportType | undefined;
   fields: FieldsType[];
-  /** 响应拦截器 */
-  response?: (res: any) => any[];
   /** 主键如果有嵌套需要使用 */
   primaryKey?: string;
   pageSizes?: number[];
@@ -57,20 +79,32 @@ export interface configType {
   /** 多选 */
   multiple?: boolean;
   pagingLayout?: string;
+  /**
+   * 事件
+   */
+  events?: Partial<EventType>;
 }
 export interface DateSetType extends configType {
   /** 分页大小,默认100 */
   pageSize?: Ref<number>;
   tableData: Ref<any[]>;
   currentPage: Ref<number>;
-  background: Ref<boolean>;
   disabled: Ref<boolean>;
   butQuery: Ref<boolean>;
   total: Ref<number>;
   formQuery: { [index: string]: string };
   /** 选中的行数据 */
   multipleSelection: Ref<Array<any>>;
-  query: () => any;
+  query: (data?: { [index: string]: any }) => any;
   /** 加载数据 */
   load: (data: any) => any;
+  /** 设置分页大小 */
+  handleSize: (size: number) => void;
+  /** 设置分页 */
+  handleCurrent: (page: number) => void;
+  /** 设置加载状态 */
+  setLoading: (loading: boolean) => void;
+  /** 设置表单数据 */
+  setFormData: (data: any) => void;
+  setMultipleSelection: (data: any) => void;
 }

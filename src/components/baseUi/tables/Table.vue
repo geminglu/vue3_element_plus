@@ -2,15 +2,21 @@
   <div class="tabel">
     <el-form v-if="dateSet.queryform" :inline="true" v-model="form">
       <el-form-item v-for="item in dateSet.queryform" :key="item.name" :label="item.label">
-        <el-input v-if="item.type === 'text'" v-model="form[item.name]" clearable />
-        <el-select v-if="item.type === 'uplook'" v-model="form[item.name]" clearable>
-          <el-option
-            v-for="l in item.uplookList"
-            :key="l.field"
-            :label="l.field"
-            :value="l.value"
-          />
-        </el-select>
+        <el-input
+          v-if="item.type === 'text'"
+          v-model="form[item.name]"
+          clearable
+          :placeholder="`请输入${item.label}`"
+        />
+        <UpLook
+          v-if="item.type === 'uplook'"
+          v-model="form[item.name]"
+          :url="item.url"
+          :uplookList="item.uplookList"
+          :fieldId="item.fieldId"
+          :fielidText="item.fielidText"
+          :placeholder="`请选择${item.label}`"
+        />
       </el-form-item>
       <el-form-item>
         <el-button
@@ -64,6 +70,7 @@
       border
       stripe
       @selection-change="handleSelectionChange"
+      :size="size"
     >
       <el-table-column v-if="dateSet.multiple" type="selection" width="45" />
       <el-table-column
@@ -74,6 +81,7 @@
         :width="item.width"
         :prop="item.name"
         :min-width="item.minWidth"
+        :fixed="item.fixed"
       >
         <template #default="scope">
           <expandDom v-if="item.render" :render="item.render" :params="scope.row" />
@@ -85,6 +93,13 @@
             v-model="scope.row[item.name]"
             type="datetime"
             placeholder="Select date and time"
+          />
+          <el-date-picker
+            v-else-if="item.type === 'date'"
+            v-model="scope.row[item.name]"
+            type="date"
+            :placeholder="`请选择${item.label}`"
+            v-bind="$attrs"
           />
         </template>
       </el-table-column>
@@ -98,19 +113,22 @@
       :page-size="dateSet.pageSize?.value"
       :page-sizes="dateSet.pageSizes"
       :disabled="dateSet.disabled.value"
-      :background="dateSet.background.value"
+      :background="background"
       :layout="dateSet.pagingLayout"
       :total="dateSet.total.value"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       class="pagination"
+      :class="!background && border && 'pag_border'"
+      :small="size === 'small'"
     />
   </div>
 </template>
 
 <script setup lang="tsx">
-import { ref, Ref, PropType, defineComponent } from 'vue';
-import { DateSetType, headerButtonsType, headerButtonsObj, QueryType } from './type';
+import { ref, PropType, defineComponent } from 'vue';
+import { DateSetType, headerButtonsType, headerButtonsObj } from './type';
+import UpLook from '@/components/baseUi/uplook/index.vue';
 
 defineOptions({
   name: 'BaseTable',
@@ -125,6 +143,18 @@ const props = defineProps({
     type: Array as PropType<headerButtonsType[]>,
     default: () => [],
   },
+  border: {
+    type: Boolean,
+    default: false,
+  },
+  size: {
+    type: String as PropType<'large' | 'default' | 'small'>,
+    default: 'large',
+  },
+  background: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const formQuery: { [index: string]: string } = {};
@@ -134,42 +164,51 @@ props.dateSet.queryform?.forEach((item) => {
 const form = ref<any>({ ...formQuery });
 
 async function query() {
-  props.dateSet.query();
+  const beforeQuery =
+    props.dateSet.events?.beforeQuery &&
+    props.dateSet.events.beforeQuery({ dataSet: props.dateSet, params: form.value });
+  if (typeof beforeQuery === 'boolean' && beforeQuery === false) {
+    return;
+  }
+  let params = {};
+  if (typeof beforeQuery === 'object') {
+    params = beforeQuery;
+  }
+  props.dateSet.query(params);
 }
 
 const handleSelectionChange = (val: any) => {
-  // multipleSelection.value = val;
+  props.dateSet.setMultipleSelection(val);
 };
-
-function load(data: any) {
-  // tableData.value = data;
-}
 
 /**
  * 查询按钮的处理事件
  */
 async function handelQuery() {
-  // try {
-  //   butQuery.value = true;
-  //   await query();
-  // } catch (error) {
-  //   // eslint-disable-next-line no-console
-  //   console.log(error);
-  // } finally {
-  //   butQuery.value = false;
-  // }
+  try {
+    props.dateSet.setLoading(true);
+    props.dateSet.setFormData(form.value);
+    await query();
+  } catch (error) {
+    //
+  } finally {
+    props.dateSet.setLoading(false);
+  }
 }
 
 function handleSizeChange(val: number) {
+  props.dateSet.handleSize(val);
   query();
 }
 function handleCurrentChange(val: number) {
+  props.dateSet.handleCurrent(val);
   query();
 }
 
 function resetForm() {
-  // form.value = { ...formQuery };
-  // query();
+  props.dateSet.events?.reset && props.dateSet.events.reset();
+  form.value = { ...formQuery };
+  query();
 }
 
 defineExpose({
@@ -193,6 +232,45 @@ const customPrefix = (icon: string) => {
 <style scoped lang="less">
 .tabel {
   overflow: hidden;
+  .custom_border {
+    :deep(.el-table__header) {
+      thead {
+        .el-table__cell {
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 50%;
+            background-color: #0000000f;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-1px, -50%);
+          }
+        }
+      }
+    }
+  }
+  .pag_border {
+    &:deep(.el-pager) {
+      .number {
+        border: 1px solid var(--el-border-color);
+        margin: 0 4px;
+      }
+    }
+    &:deep(.btn-prev) {
+      border: 1px solid var(--el-border-color);
+      margin: 0 4px;
+      margin-left: var(--el-pagination-item-gap);
+    }
+    &:deep(.btn-next) {
+      border: 1px solid var(--el-border-color);
+      margin: 0 4px;
+    }
+  }
+  :deep(.el-date-editor--datetime) {
+    max-width: 100%;
+  }
 }
 .pagination {
   margin-top: 12px;
