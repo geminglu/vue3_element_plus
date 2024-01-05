@@ -7,7 +7,7 @@ export const codeReg = /^[0-9a-zA-Z]{4}$/;
 /** 邮箱 */
 export const emailReg = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 /** 手机号 */
-export const phoneReg = /^1[1-9]{10}$/;
+export const phoneReg = /^1[1-9]{1}[0-9]{9}$/;
 
 /**
  * 身份证
