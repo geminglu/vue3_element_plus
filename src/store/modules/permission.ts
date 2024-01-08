@@ -24,24 +24,28 @@ const usePermissioStore = defineStore('permissionStore', {
 
   actions: {
     async getSystemMenu() {
-      this.flattenConstantRoutes = flattenTree(constantRoutes);
+      let routes: AppRouteRecordRaw[] = [];
+      try {
+        this.flattenConstantRoutes = flattenTree(constantRoutes);
+        let menus = [];
+        const result = await getPermissionMenu();
+        menus =
+          result.data?.map((item: any) => ({
+            ...item,
+            hidden: item.hidden !== '0',
+          })) || [];
+        this.systemMenu = arrayToTree(menus);
 
-      let menus = [];
-      const result = await getPermissionMenu();
-      menus =
-        result.data?.map((item: any) => ({
-          ...item,
-          hidden: item.hidden !== '0',
-        })) || [];
-      this.systemMenu = arrayToTree(menus);
+        routes = this.reRoutes(menus, syncRoutes);
 
-      const routes = this.reRoutes(menus, syncRoutes);
+        this.addRoute = routes;
 
-      this.addRoute = routes;
-
-      routes.forEach((item: any) => {
-        router.addRoute(item);
-      });
+        routes.forEach((item: any) => {
+          router.addRoute(item);
+        });
+      } catch (error) {
+        this.systemMenu = [];
+      }
       return routes;
     },
 
