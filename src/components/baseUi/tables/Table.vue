@@ -17,6 +17,20 @@
           :fielidText="item.fielidText"
           :placeholder="`请选择${item.label}`"
         />
+        <el-date-picker
+          v-if="item.type === 'date'"
+          v-model="form[item.name]"
+          type="date"
+          :placeholder="`请选择${item.label}`"
+          :format="item.format"
+        />
+        <el-date-picker
+          v-if="item.type === 'datetime'"
+          v-model="form[item.name]"
+          type="datetime"
+          :placeholder="`请选择${item.label}`"
+          :format="item.format"
+        />
       </el-form-item>
       <el-form-item>
         <el-button
@@ -71,8 +85,14 @@
       stripe
       @selection-change="handleSelectionChange"
       :size="size"
+      ref="tableRef"
     >
-      <el-table-column v-if="dateSet.multiple" type="selection" width="45" />
+      <el-table-column
+        v-if="dateSet.multiple"
+        type="selection"
+        width="45"
+        :reserve-selection="dateSet.reserveSelection"
+      />
       <el-table-column
         v-for="item in dateSet.fields"
         :key="item.name"
@@ -129,6 +149,7 @@
 import { ref, PropType, defineComponent } from 'vue';
 import { DateSetType, headerButtonsType, headerButtonsObj } from './type';
 import UpLook from '@/components/baseUi/uplook/index.vue';
+import { ElTable } from 'element-plus';
 
 defineOptions({
   name: 'BaseTable',
@@ -156,6 +177,8 @@ const props = defineProps({
     default: false,
   },
 });
+
+const tableRef = ref<InstanceType<typeof ElTable>>();
 
 const formQuery: { [index: string]: string } = {};
 props.dateSet.queryform?.forEach((item) => {
@@ -189,8 +212,8 @@ async function handelQuery() {
     props.dateSet.setLoading(true);
     props.dateSet.setFormData(form.value);
     await query();
-  } catch (error) {
-    //
+  } catch (error: any) {
+    throw new Error(error);
   } finally {
     props.dateSet.setLoading(false);
   }

@@ -1,6 +1,6 @@
 <template>
   <PageHeaderWrapper title="菜单管理">
-    <Table :date-set="dataSet" :header-buttons="buttons" />
+    <!-- <Table :date-set="dataSet" :header-buttons="buttons" /> -->
   </PageHeaderWrapper>
 </template>
 

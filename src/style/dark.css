@@ -101,3 +101,12 @@ html.dark .el-table {
   --el-table-row-hover-bg-color: #202020;
   --el-table-border-color: #303030;
 }
+
+html.dark {
+  --subMenuActiveText: var(--el-color-primary);
+  --menuBg: #1e1e20;
+  --menuHover: var(--el-color-primary-light-9);
+  --subMenuBg: var(--el-fill-color-blank);
+  --subMenuActiveBg: var(--el-fill-color-blank);
+  --menuText: var(--el-text-color-primary);
+}

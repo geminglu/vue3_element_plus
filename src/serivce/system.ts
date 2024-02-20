@@ -40,7 +40,7 @@ export interface ResSystemMenuDto {
    * 路由名称，如果是是菜单路由名称就必须存在
    */
   name?: string;
-  pid?: string;
+  pid: string;
   /**
    * title
    */

@@ -1,72 +1,77 @@
 <template>
-  <el-dialog
-    v-model="visible"
-    destroy-on-close
-    :width="width"
-    :show-close="false"
-    :top="top"
-    :before-close="handleClose"
-    :fullscreen="isFullscreen"
-    :draggable="draggable"
-    :align-center="!top && alignCenter"
-    @open="open"
-    @opened="opened"
-    @close="close"
-    @closed="closed"
-    @open-auto-focus="openAutoFocus"
-    @close-auto-focus="closeAutoFocus"
-    height="200px"
-    class="base_modal"
-    :class="isFullscreen ? '' : 'fullscreen_modal'"
-    :close-on-click-modal="closeOnClickModal"
-  >
-    <template #header="{ close, titleId, titleClass }">
-      <div class="header">
-        <slot name="header" :close="close" :title-id="titleId" :title-class="titleClass" />
-        <expandDom
-          class="header_title"
-          v-if="header && !$slots.header"
-          :render="header"
-          :params="{ close, titleId, titleClass }"
-        />
-        <h3 v-if="!header && !$slots.header" class="header_title">{{ title }}</h3>
-        <div class="butgure">
-          <template v-if="showFullscreen">
-            <span
-              v-if="isFullscreen"
-              class="butitem iconfont icon-window-window_line"
-              @click="handelFullscreen(false)"
-            />
-            <span
-              v-else
-              class="butitem iconfont icon-window-max_line"
-              @click="handelFullscreen(true)"
-            />
-          </template>
-          <span v-if="showClose" class="butitem iconfont icon-shanchu2" @click="close" />
+  <ElConfigProvider :locale="zhCn">
+    <el-dialog
+      v-model="visible"
+      destroy-on-close
+      :width="width"
+      :show-close="false"
+      :top="top"
+      :before-close="handleClose"
+      :fullscreen="isFullscreen"
+      :draggable="draggable"
+      :align-center="!top && alignCenter"
+      @open="open"
+      @opened="opened"
+      @close="close"
+      @closed="closed"
+      @open-auto-focus="openAutoFocus"
+      @close-auto-focus="closeAutoFocus"
+      height="200px"
+      class="base_modal"
+      :class="isFullscreen ? '' : 'fullscreen_modal'"
+      :close-on-click-modal="closeOnClickModal"
+    >
+      <template #header="{ close, titleId, titleClass }">
+        <div class="header">
+          <slot name="header" :close="close" :title-id="titleId" :title-class="titleClass" />
+          <expandDom
+            class="header_title"
+            v-if="header && !$slots.header"
+            :render="header"
+            :params="{ close, titleId, titleClass }"
+          />
+          <h3 v-if="!header && !$slots.header" class="header_title">{{ title }}</h3>
+          <div class="butgure">
+            <template v-if="showFullscreen">
+              <span
+                v-if="isFullscreen"
+                class="butitem iconfont icon-window-window_line"
+                @click="handelFullscreen(false)"
+              />
+              <span
+                v-else
+                class="butitem iconfont icon-window-max_line"
+                @click="handelFullscreen(true)"
+              />
+            </template>
+            <span v-if="showClose" class="butitem iconfont icon-shanchu2" @click="close" />
+          </div>
         </div>
-      </div>
-    </template>
-    <el-scrollbar class="modal_body">
-      <slot />
-      <expandDom v-if="body" :render="body" />
-    </el-scrollbar>
+      </template>
+      <el-scrollbar class="modal_body">
+        <slot />
+        <expandDom v-if="body" :render="body" />
+      </el-scrollbar>
 
-    <template #footer v-if="isShowFooter">
-      <slot v-if="$slots.footer" name="footer" />
-      <expandDom v-else-if="footer" :render="footer" />
-      <span v-else>
-        <el-button type="primary" @click="handleConfirm" :loading="confirmLoading">确 定</el-button>
-        <el-button @click="handleClose">取 消</el-button>
-      </span>
-    </template>
-  </el-dialog>
+      <template #footer v-if="isShowFooter">
+        <slot v-if="$slots.footer" name="footer" />
+        <expandDom v-else-if="footer" :render="footer" />
+        <span v-else>
+          <el-button type="primary" @click="handleConfirm" :loading="confirmLoading"
+            >确 定</el-button
+          >
+          <el-button @click="handleClose">取 消</el-button>
+        </span>
+      </template>
+    </el-dialog>
+  </ElConfigProvider>
 </template>
 
 <script setup lang="tsx">
 import { ref, defineComponent, watch } from 'vue';
 import { BaseModalProps } from './baseModal';
 import { ElMessage } from 'element-plus';
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 
 const props = withDefaults(defineProps<Partial<BaseModalProps>>(), {
   fullscreen: false,

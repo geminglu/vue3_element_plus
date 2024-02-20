@@ -23,12 +23,41 @@
         />
       </li>
     </ul>
-    <!-- <div class="s_l">
-      <span class="s_lable">主题色</span>
-      <span class="s_cneter">
+    <el-divider>导航布局</el-divider>
+    <ul class="layout_theme">
+      <el-tooltip class="item" content="左侧模式" placement="bottom" popper-class="layout_theme">
+        <li
+          :class="appStore.layoutTheme === 'vertical' ? 'is-select' : ''"
+          ref="verticalRef"
+          @click="appStore.layoutTheme = 'vertical'"
+        >
+          <div />
+          <div />
+        </li>
+      </el-tooltip>
 
-      </span>
-    </div> -->
+      <el-tooltip class="item" content="顶部模式" placement="bottom" popper-class="layout_theme">
+        <li
+          :class="appStore.layoutTheme === 'horizontal' ? 'is-select' : ''"
+          ref="horizontalRef"
+          @click="appStore.layoutTheme = 'horizontal'"
+        >
+          <div />
+          <div />
+        </li>
+      </el-tooltip>
+
+      <el-tooltip class="item" content="混合模式" placement="bottom" popper-class="layout_theme">
+        <li
+          :class="appStore.layoutTheme === 'mix' ? 'is-select' : ''"
+          ref="mixRef"
+          @click="appStore.layoutTheme = 'mix'"
+        >
+          <div />
+          <div />
+        </li>
+      </el-tooltip>
+    </ul>
   </div>
 </template>
 
@@ -99,6 +128,81 @@ const themeColorsfilter = computed(() => {
         }
       }
     }
+  }
+}
+
+.layout_theme {
+  margin-top: 25px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  li {
+    width: 18%;
+    height: 45px;
+    background: #f0f2f5;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 1px 2.5px 0 rgb(0 0 0 / 18%);
+
+    &:nth-child(1) {
+      div {
+        &:nth-child(1) {
+          width: 30%;
+          height: 100%;
+          background: #1b2a47;
+        }
+
+        &:nth-child(2) {
+          width: 70%;
+          height: 30%;
+          top: 0;
+          right: 0;
+          background: #fff;
+          box-shadow: 0 0 1px #888;
+          position: absolute;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      div {
+        &:nth-child(1) {
+          width: 100%;
+          height: 30%;
+          background: #1b2a47;
+          box-shadow: 0 0 1px #888;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      div {
+        &:nth-child(1) {
+          width: 100%;
+          height: 30%;
+          background: #1b2a47;
+          box-shadow: 0 0 1px #888;
+        }
+
+        &:nth-child(2) {
+          width: 30%;
+          height: 70%;
+          bottom: 0;
+          left: 0;
+          background: #fff;
+          box-shadow: 0 0 1px #888;
+          position: absolute;
+        }
+      }
+    }
+  }
+  .is-select {
+    border: 2px solid var(--el-color-primary);
   }
 }
 </style>

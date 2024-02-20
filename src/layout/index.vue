@@ -2,21 +2,9 @@
   <div class="cont">
     <Header />
     <div class="content">
-      <div class="aside">
+      <Transition name="fade">
         <Aside />
-        <div class="aside_footer">
-          <span
-            v-if="appStore.menuCollapse"
-            class="iconfont icon-a-yousuojin3x show_collapse"
-            @click="showCollapse(false)"
-          />
-          <span
-            v-else
-            class="iconfont icon-a-zuosuojin3x show_collapse"
-            @click="showCollapse(true)"
-          />
-        </div>
-      </div>
+      </Transition>
       <div class="main-container">
         <TagsView />
         <el-scrollbar class="page_scrollbar">
@@ -32,27 +20,34 @@
 import Main from './components/Main.vue';
 import Aside from './components/Aside.vue';
 import Header from './components/Header.vue';
-import useAppStore from '@/store/modules/app';
 import TagsView from './components/TagsView/index.vue';
 import Footer from './components/Footer.vue';
+import useAppStore from '@/store/modules/app';
+import { ref } from 'vue';
 
 const appStore = useAppStore();
 
-function showCollapse(value: boolean) {
-  appStore.menuCollapse = value;
-}
+const menuWidth = ref(appStore.menuCollapse ? '65px' : '250px');
 </script>
 
 <style lang="less" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.3s;
+  // width: 450px;
+  // left: 0px;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  width: 0px;
+  // left: -65px;
+}
+
 .cont {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-.aside {
-  border-right: 1px solid var(--el-border-color);
-  margin-right: 12px;
-  background-color: var(--menuBg);
 }
 .content {
   display: flex;
@@ -62,16 +57,5 @@ function showCollapse(value: boolean) {
 .main-container {
   flex: 1;
   overflow: hidden;
-}
-.aside_footer {
-  height: 40px;
-  border-top: 1px solid var(--el-border-color);
-}
-.show_collapse {
-  font-size: 22px;
-  line-height: 40px;
-  margin-left: 12px;
-  cursor: pointer;
-  color: var(--el-text-color-primary);
 }
 </style>

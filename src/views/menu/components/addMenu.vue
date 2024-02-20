@@ -1,18 +1,16 @@
 <template>
   <el-form ref="ruleFormRef" :model="form" :rules="rules" label-width="80">
-    <el-form-item label="类型" prop="type">
-      <el-radio-group v-model="form.type" :disabled="Boolean(data?.type)">
-        <el-radio-button label="directory">目录</el-radio-button>
-        <el-radio-button label="menu">菜单</el-radio-button>
-      </el-radio-group>
-    </el-form-item>
     <el-form-item label="菜单名称" prop="title">
       <el-input v-model="form.title" />
     </el-form-item>
-    <el-form-item v-if="form.type === 'menu'" label="路由地址" prop="path">
-      <el-input v-model="form.path" />
+    <el-form-item label="路由地址" prop="path">
+      <el-input v-model="form.path" placeholder="请输入路由地址">
+        <template #prefix>
+          <el-icon class="el-input__icon"><span>/</span></el-icon>
+        </template>
+      </el-input>
     </el-form-item>
-    <el-form-item v-if="form.type === 'directory'" label="icon" prop="icon">
+    <el-form-item label="icon" prop="icon">
       <el-input readonly v-model="form.icon" placeholder="选择icon">
         <template #prepend>
           <span class="iconfont" :class="`icon-${form.icon}`"></span>
@@ -38,6 +36,7 @@ import { ref, reactive, PropType } from 'vue';
 import type { FormInstance, FormRules } from 'element-plus';
 import Modal from '@/components/baseUi/modal';
 import SelectMenuIcon from '@/components/selectMenuIcon/index.vue';
+import path from 'path-browserify';
 
 defineOptions({
   name: 'AddMenu',
@@ -47,7 +46,6 @@ interface MenuType {
   path?: string;
   title?: string;
   icon?: string;
-  type?: string;
   hidden?: boolean;
   status?: '0' | '1';
 }
@@ -56,13 +54,11 @@ const props = defineProps({
     type: Object as PropType<MenuType>,
   },
 });
-
 const ruleFormRef = ref<FormInstance>();
 const form = reactive({
-  path: props.data?.path || '',
+  path: (props.data?.path || '')[0] === '/' ? props.data?.path?.slice(1) : props.data?.path || '',
   title: props.data?.title || '',
   icon: props.data?.icon || '',
-  type: props.data?.type || 'directory',
   hidden: props.data?.hidden || false,
   status: props.data?.status || '1',
 });
@@ -70,7 +66,6 @@ const rules = reactive<FormRules>({
   path: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   title: [{ required: true, message: '这个必填项', trigger: 'blur' }],
   icon: [{ required: true, message: '请选择icon', trigger: 'blur' }],
-  type: [{ required: false, message: '请选择类型', trigger: 'blur' }],
   status: [{ required: false }],
 });
 
@@ -89,7 +84,7 @@ function openSelectIcon(value = '') {
 }
 
 async function complete() {
-  return !(await ruleFormRef.value?.validate()) || form;
+  return !(await ruleFormRef.value?.validate()) || { ...form, path: path.join('/', form.path) };
 }
 
 defineExpose({

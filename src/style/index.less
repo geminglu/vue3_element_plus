@@ -5,6 +5,35 @@
 @import url(./github-markdown.less);
 @import url(./highlight.less);
 
+:root {
+  --el-border-radius-base: 6px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 6px;
+
+  --nav-header: 58px;
+}
+.el-tooltip__trigger:focus {
+  outline: 0;
+}
+.el-textarea__inner {
+  box-shadow: 0 0 0 1px var(--el-input-border-color, var(--el-border-color)) inset;
+  background-color: #ffffff;
+}
+.el-textarea__inner:focus {
+  /* background: var(--el-color-primary-light-9); */
+}
+
+html .el-table__header {
+  --el-table-header-text-color: var(--el-text-color-primary);
+}
+
+.el-form-item__label {
+  color: var(--el-text-color-primary);
+}
+.el-input__inner {
+  --el-input-text-color: var(--el-text-color-primary);
+}
+
 .icon {
   width: 1em;
   height: 1em;
@@ -137,11 +166,22 @@ html.saucePurple {
   --menuTitleHover: #fff;
   --menuActiveBefore: #693ac9;
 }
-html.dark {
-  --subMenuActiveText: var(--el-color-primary);
-  --menuBg: var(--el-fill-color-blank);
-  --menuHover: var(--el-color-primary-light-9);
-  --subMenuBg: var(--el-fill-color-blank);
-  --subMenuActiveBg: var(--el-fill-color-blank);
-  --menuText: var(--el-text-color-primary);
+#app .menu {
+  // border-right: none;
+  // background-color: var(--menuBg) !important;
+  // user-select: none;
+  // --el-menu-active-color: var(--el-color-primary);
+  // --el-menu-hover-text-color: var(--el-color-primary);
+  // --el-menu-hover-bg-color: var(--el-color-primary-light-9);
+  // --el-menu-item-height: 56px;
+  // --el-menu-sub-item-height: calc(var(--el-menu-item-height) - 6px);
+  // --el-menu-horizontal-sub-item-height: 36px;
+  // --el-menu-item-font-size: var(--el-font-size-base);
+  // --el-menu-item-hover-fill: var(--el-color-primary-light-9);
+  // --el-menu-border-color: var(--el-border-color);
+  // --el-menu-base-level-padding: 20px;
+  // --el-menu-level-padding: 20px;
+  // --el-menu-icon-width: 24px;
+  --el-menu-bg-color: var(--menuBg);
+  --el-menu-text-color: var(--menuText);
 }

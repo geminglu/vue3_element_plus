@@ -30,6 +30,7 @@ export class DataSet implements DateSetType {
   multipleSelection = ref([]);
   pagingLayout = 'total, sizes, prev, pager, next, jumper';
   events;
+  reserveSelection = false;
 
   constructor(dataSet: configType) {
     dataSet.autoQuery !== undefined && (this.autoQuery = dataSet.autoQuery);
@@ -46,6 +47,10 @@ export class DataSet implements DateSetType {
       this.pageSize.value = dataSet.pageSizes[0];
     }
     this.events = dataSet.events || {};
+
+    if (dataSet.reserveSelection !== undefined) {
+      this.reserveSelection = dataSet.reserveSelection;
+    }
 
     // 如果autoQuery为true调用query函数
     this.autoQuery && this.query();
@@ -90,6 +95,7 @@ export class DataSet implements DateSetType {
       }
 
       this.tableData.value = this.events.response ? this.events.response(list) : list;
+      this.events?.onLoad && (await this.events.onLoad(this, this.tableData.value));
     } catch (error: any) {
       throw new Error(error);
     } finally {

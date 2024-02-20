@@ -4,7 +4,8 @@ import type { Ref } from 'vue';
 export interface headerButtonsObj {
   name: string;
   icon: string;
-  click: () => void;
+  // eslint-disable-next-line no-use-before-define
+  click: (dataSet: DateSetType, param: { [index: string]: any }) => void;
 }
 
 export type headerButton = 'refresh' | 'dele';
@@ -15,7 +16,7 @@ interface TransportType {
 }
 interface FieldsType {
   name: string;
-  type: 'text' | 'datetime' | 'time' | 'date';
+  type: 'text' | 'datetime' | 'time' | 'date' | 'datetime';
   label: string /** 对应列的宽度 */;
   width?: string | number;
   /** 对应列的最小宽度， 对应列的最小宽度， 与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列 */
@@ -30,7 +31,7 @@ interface uplookType {
 }
 export interface QueryType {
   name: string;
-  type: 'uplook' | 'text';
+  type: 'uplook' | 'text' | 'date' | 'datetime';
   label: string;
   /** 默认值 */
   defaultValue?: any;
@@ -38,6 +39,10 @@ export interface QueryType {
   url?: string;
   fieldId?: string;
   fielidText?: string;
+  /**
+   * 日期组件显示在输入框中的格式
+   */
+  format?: string;
 }
 
 interface EventType {
@@ -59,6 +64,11 @@ interface EventType {
    * @description 需要返回一组数据
    */
   response: (res: any[]) => any[];
+  /**
+   * 数据加载完成后执行
+   */
+  // eslint-disable-next-line no-use-before-define
+  onLoad: (dataSet: DateSetType, data: any[]) => void;
 }
 
 export interface configType {
@@ -83,6 +93,9 @@ export interface configType {
    * 事件
    */
   events?: Partial<EventType>;
+
+  /** 是否保留被选中的数据 */
+  reserveSelection?: boolean;
 }
 export interface DateSetType extends configType {
   /** 分页大小,默认100 */

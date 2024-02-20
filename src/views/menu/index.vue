@@ -48,14 +48,6 @@ const dataSet = new DataSet({
       type: 'text',
     },
     {
-      name: 'type',
-      label: '类型',
-      type: 'text',
-      render: (param) => (
-        <>{param.type === 'menu' ? <el-tag>菜单</el-tag> : <el-tag type="success">目录</el-tag>}</>
-      ),
-    },
-    {
       name: 'operate',
       type: 'text',
       label: '操作',
@@ -67,30 +59,21 @@ const dataSet = new DataSet({
 });
 
 const renderMenu = (param: any) => {
-  const but: operate[] = [];
-
-  if (param?.type === 'menu') {
-    but.push({
+  const but: operate[] = [
+    {
       type: 'editMenu',
       name: '编辑',
-    });
-  }
-  if (param?.type === 'directory') {
-    but.push(
-      {
-        type: 'editMenu',
-        name: '编辑',
-      },
-      {
-        type: 'add',
-        name: '新增',
-      }
-    );
-  }
-  but.push({
-    type: 'delMenu',
-    name: '删除',
-  });
+    },
+    {
+      type: 'add',
+      name: '新增',
+    },
+    {
+      type: 'delMenu',
+      name: '删除',
+    },
+  ];
+
   const dropdown = {
     dropdown: () => (
       <el-dropdown-menu>
