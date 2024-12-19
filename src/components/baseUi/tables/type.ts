@@ -14,9 +14,37 @@ export type headerButtonsType = headerButton | headerButtonsObj;
 interface TransportType {
   read: AxiosRequestConfig | ((params: any) => AxiosRequestConfig);
 }
-interface FieldsType {
+
+interface FieldsTextType {
+  type: "text";
+}
+interface FieldsDateType {
+  type: "date";
+  format?: string;
+}
+interface FieldsDatetimeType {
+  type: "datetime";
+  format?: string;
+}
+interface FieldsDateTimeType {
+  type: "time";
+  format?: string;
+}
+interface FieldsUplookType {
+  type: "uplook";
+  field: string;
+  value: any;
+}
+
+type FieldsExtend =
+  | FieldsTextType
+  | FieldsDateType
+  | FieldsDatetimeType
+  | FieldsDateTimeType
+  | FieldsUplookType;
+
+type FieldsType = {
   name: string;
-  type: 'text' | 'datetime' | 'time' | 'date' | 'datetime';
   label: string /** 对应列的宽度 */;
   width?: string | number;
   /** 对应列的最小宽度， 对应列的最小宽度， 与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列 */
@@ -24,6 +52,10 @@ interface FieldsType {
   /** 列是否固定在左侧或者右侧。 true 表示固定在左侧 */
   fixed?: string | boolean;
   render?: (param: any) => JSX.Element;
+} & FieldsExtend;
+interface uplookType {
+  field: string;
+  value: any;
 }
 interface uplookType {
   field: string;
